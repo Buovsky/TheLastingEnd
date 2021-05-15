@@ -13,6 +13,8 @@ public class SpawnAntagonist : MonoBehaviour
     [SerializeField] private float thirdSpawn = 50;
 
     private bool antagonistLives = false;
+
+    AudioSource audioData;
     
 
     void Start()
@@ -53,14 +55,20 @@ public class SpawnAntagonist : MonoBehaviour
             case 1:
                 Debug.Log("Antagonist will appear");
                 Invoke("Spawn", firstSpawn);
+                audioData = GetComponent<AudioSource>();
+                audioData.Play(0);
                 antagonistLives = true;
                 break;
             case 2:
                 Invoke("Spawn", secondSpawn);
+                audioData = GetComponent<AudioSource>();
+                audioData.Play(0);
                 antagonistLives = true;
                 break;
             case 3:
                 Invoke("Spawn", thirdSpawn);
+                audioData = GetComponent<AudioSource>();
+                audioData.Play(0);
                 antagonistLives = true;
                 break;
             default:
