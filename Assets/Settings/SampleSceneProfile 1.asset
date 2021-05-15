@@ -98,7 +98,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.3277173, g: 0.2951673, b: 0.9339623, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -107,12 +107,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.236
+    m_Value: 0.418
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.381
+    m_Value: 0.43
     min: 0.01
     max: 1
   rounded:
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: SampleSceneProfile
+  m_Name: SampleSceneProfile 1
   m_EditorClassIdentifier: 
   components:
   - {fileID: 849379129802519247}
@@ -228,10 +228,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.94421256, y: 0.93576443, z: 1, w: 0.06538625}
+    m_Value: {x: 0.94421256, y: 0.93576443, z: 1, w: 0.23293829}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9570642, y: 0.9873694, z: 1, w: 0}
+    m_Value: {x: 0.86583984, y: 0.89686716, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}

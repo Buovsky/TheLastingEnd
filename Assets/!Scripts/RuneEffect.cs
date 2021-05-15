@@ -12,6 +12,12 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private GameObject runeOne;
     [SerializeField] private GameObject runeTwo;
 
+    [SerializeField] private GameObject nightVision;
+
+
+
+
+
     private bool isCollision = false;
 
     // Start is called before the first frame update
@@ -28,6 +34,15 @@ public class RuneEffect : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.E))
             {
                 Spawn();
+            }
+        }
+        if(runeCount > 1)
+        {
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                nightVision.SetActive(true);
+                Invoke("TurnOff", 10);
+                
             }
         }
         if(isCollision)
@@ -73,6 +88,11 @@ public class RuneEffect : MonoBehaviour
     {
         text.SetActive(false);
         isCollision = false;
+    }
+
+    void TurnOff()
+    {
+        nightVision.SetActive(false);
     }
 
 
