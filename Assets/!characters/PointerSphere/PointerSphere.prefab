@@ -42,7 +42,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.75, g: 0.8022881, b: 1, a: 1}
+  m_Color: {r: 0.6578123, g: 0.41429335, b: 0.9245283, a: 1}
   m_Intensity: 2
   m_Range: 2
   m_SpotAngle: 30
@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407007493114514595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0.013, y: -1.504, z: 0}
   m_LocalScale: {x: 0.52586, y: 0.52586, z: 0.52586}
   m_Children:
   - {fileID: 4940054126068745213}
@@ -258,5 +258,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5044913402270972981}
   runeZone:
-  - {fileID: 2309201640136176309, guid: 7b7749cb5a7201c4db700626197f784b, type: 3}
-  - {fileID: 2309201640136176309, guid: 259f6d9ed3a7ae44781d9d890fdaf764, type: 3}
+  - {fileID: 8825597492185207142, guid: 4f350ac714fd52e41904c84b8f23557a, type: 3}
+  - {fileID: 3631619094751659306, guid: 85d37796307364b4eb9b95f1f3eba2eb, type: 3}

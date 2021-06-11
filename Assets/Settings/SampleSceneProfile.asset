@@ -152,7 +152,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
 --- !u!114 &4954732030984395313
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -228,13 +228,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.94421256, y: 0.93576443, z: 1, w: 0.06538625}
+    m_Value: {x: 0.7895259, y: 0.84716815, z: 1, w: 0.47436228}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9570642, y: 0.9873694, z: 1, w: 0}
+    m_Value: {x: 0.75275576, y: 0.81205475, z: 1, w: 0.34736428}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.9077958, y: 0.9358725, z: 1, w: 0.3146711}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0

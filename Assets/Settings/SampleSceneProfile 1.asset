@@ -98,7 +98,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.3277173, g: 0.2951673, b: 0.9339623, a: 1}
+    m_Value: {r: 0.8396226, g: 0, b: 0.8081368, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.418
+    m_Value: 0.501
     min: 0
     max: 1
   smoothness:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
@@ -228,10 +228,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.94421256, y: 0.93576443, z: 1, w: 0.23293829}
+    m_Value: {x: 0.8476748, y: 0.8802766, z: 1, w: 1}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.86583984, y: 0.89686716, z: 1, w: 0}
+    m_Value: {x: 0.86583984, y: 0.89686716, z: 1, w: 0.030181088}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
