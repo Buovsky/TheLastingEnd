@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1292041321255788887}
   - component: {fileID: 2931652922037649233}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 3733972988323207753}
   - component: {fileID: 5044913402270972981}
   - component: {fileID: -1965221983273676930}
+  - component: {fileID: 8138100976403064180}
   m_Layer: 0
   m_Name: PointerSphere
   m_TagString: Untagged
@@ -232,7 +233,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.17
-  m_Speed: 5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -260,3 +261,22 @@ MonoBehaviour:
   runeZone:
   - {fileID: 8825597492185207142, guid: 4f350ac714fd52e41904c84b8f23557a, type: 3}
   - {fileID: 3631619094751659306, guid: 85d37796307364b4eb9b95f1f3eba2eb, type: 3}
+--- !u!95 &8138100976403064180
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407007493114514595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a5ab184e73e97d439a2a8e303cde958, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

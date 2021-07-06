@@ -15,7 +15,7 @@ public class PointerScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 5);
         GameObject player = GameObject.Find("FPSController");
         RuneEffect runeEffect = player.GetComponent<RuneEffect>();
         numberOfRunes = runeEffect.runeCount;
