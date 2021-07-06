@@ -15,8 +15,12 @@ public class AntagonistBehavor : MonoBehaviour
 
     public bool antagonistLive = false;
 
+    Animator animator;
+
     void Awake()
     {
+        animator = GetComponent<Animator>();
+
         CheckCountOfRunes();
         CheckPlayerPosition();
         InvokeRepeating("CheckPlayerPosition", .1f, .1f);
@@ -51,14 +55,17 @@ public class AntagonistBehavor : MonoBehaviour
             case 1:
                 Destroy(gameObject, firstDie);
                 Invoke("Alive", firstDie -1); // this should be send event to SpawnAntagonist
+                Invoke("DisappearAnimation", firstDie -5); // this should be send event to SpawnAntagonist
                 break;
             case 2:
                 Destroy(gameObject, secondDie);
                 Invoke("Alive", secondDie -1);
+                Invoke("DisappearAnimation", secondDie -5);
                 break;
             case 3:
                 Destroy(gameObject, thirdDie);
                 Invoke("Alive", thirdDie -1);
+                Invoke("DisappearAnimation", thirdDie -5);
                 break;
             default:
                 Debug.Log("No runes");
@@ -69,6 +76,11 @@ public class AntagonistBehavor : MonoBehaviour
     private void Alive()
     {
         antagonistLive = false;
+    }
+
+    private void DisappearAnimation()
+    {
+        animator.SetBool("Disappear", true);
     }
 }
 
