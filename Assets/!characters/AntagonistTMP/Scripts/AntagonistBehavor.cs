@@ -9,13 +9,12 @@ public class AntagonistBehavor : MonoBehaviour
     private int numberOfRunes;
     private Transform playerPos;
 
-    [SerializeField] private float firstDie = 20;
+    [SerializeField] private float firstDie = 40;
     [SerializeField] private float secondDie = 60;
     [SerializeField] private float thirdDie = 80;
 
     public bool antagonistLive = false;
 
-    // Start is called before the first frame update
     void Awake()
     {
         CheckCountOfRunes();
@@ -25,8 +24,6 @@ public class AntagonistBehavor : MonoBehaviour
         Die();
 
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         agent.SetDestination(playerPos.transform.position);
@@ -44,6 +41,7 @@ public class AntagonistBehavor : MonoBehaviour
     {
         GameObject player = GameObject.Find("FPSController");
         playerPos = player.transform;
+        Debug.Log(playerPos);
     }
 
     void Die()
@@ -52,15 +50,15 @@ public class AntagonistBehavor : MonoBehaviour
         {
             case 1:
                 Destroy(gameObject, firstDie);
-                Invoke("Alive", firstDie -3);
+                Invoke("Alive", firstDie -1); // this should be send event to SpawnAntagonist
                 break;
             case 2:
                 Destroy(gameObject, secondDie);
-                Invoke("Alive", secondDie -5);
+                Invoke("Alive", secondDie -1);
                 break;
             case 3:
                 Destroy(gameObject, thirdDie);
-                Invoke("Alive", thirdDie - 5);
+                Invoke("Alive", thirdDie -1);
                 break;
             default:
                 Debug.Log("No runes");

@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6975274187615187704}
   - component: {fileID: 6975274187603976794}
+  - component: {fileID: 6735591834747122481}
   m_Layer: 0
   m_Name: Warrok
   m_TagString: Untagged
@@ -338,6 +339,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.03051716, y: 0.24883986, z: 0.10969105}
     m_Extent: {x: 1.0885947, y: 1.1183019, z: 0.7407218}
   m_DirtyAABB: 0
+--- !u!136 &6735591834747122481
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975274187615547096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0.0025294349, y: 1.0886812, z: 0.1626198}
 --- !u!1 &6975274187615547098
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6975274187615547102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5442, y: -0.134, z: 20.654}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.58173245, y: 0.95, z: 0.583072}
   m_Children:
   - {fileID: 6975274187615187838}
@@ -442,8 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 968359475427965297}
-  firstDie: 10
-  secondDie: 20
+  firstDie: 30
+  secondDie: 50
   thirdDie: 80
   antagonistLive: 0
 --- !u!195 &968359475427965297
@@ -455,7 +470,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6975274187615547102}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.00001
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -465,7 +480,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!82 &4343032914757322475

@@ -20,7 +20,7 @@ public class SpawnAntagonist : MonoBehaviour
     void Start()
     {
         CheckCountOfRunes();
-        InvokeRepeating("CheckCountOfRunes", .1f, 4);
+        InvokeRepeating("CheckCountOfRunes", .1f, 1);
         
     }
 
@@ -55,21 +55,22 @@ public class SpawnAntagonist : MonoBehaviour
             case 1:
                 Debug.Log("Antagonist will appear");
                 Invoke("Spawn", firstSpawn);
+                antagonistLives = true; // send event to spawn antagonist
                 audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
-                antagonistLives = true;
                 break;
             case 2:
                 Invoke("Spawn", secondSpawn);
+                antagonistLives = true;
                 audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
-                antagonistLives = true;
+                
                 break;
             case 3:
                 Invoke("Spawn", thirdSpawn);
+                antagonistLives = true;
                 audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
-                antagonistLives = true;
                 break;
             default:
                 print("No runes");
