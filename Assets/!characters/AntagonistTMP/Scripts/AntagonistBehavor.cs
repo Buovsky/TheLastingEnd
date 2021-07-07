@@ -31,7 +31,7 @@ public class AntagonistBehavor : MonoBehaviour
     void FixedUpdate()
     {
         agent.SetDestination(playerPos.transform.position);
-        Debug.Log("Żyje" + antagonistLive);
+        //Debug.Log("Żyje" + antagonistLive);
     }
 
     void CheckCountOfRunes()
@@ -45,7 +45,6 @@ public class AntagonistBehavor : MonoBehaviour
     {
         GameObject player = GameObject.Find("FPSController");
         playerPos = player.transform;
-        Debug.Log(playerPos);
     }
 
     void Die()
