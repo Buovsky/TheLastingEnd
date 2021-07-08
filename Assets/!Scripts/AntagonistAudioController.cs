@@ -39,7 +39,7 @@ public class AntagonistAudioController : MonoBehaviour
         while(gameObject)
         {
             float dist = Vector3.Distance(playerPos.position, transform.position);
-            Debug.Log(dist);
+            //Debug.Log(dist);
             
             float x = Mathf.Clamp(dist, minDist, maxDist);
             float pitch = (farPitch - closePitch) * (x - minDist) / (maxDist - minDist) + closePitch;

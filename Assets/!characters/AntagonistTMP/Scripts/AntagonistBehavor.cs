@@ -19,6 +19,8 @@ public class AntagonistBehavor : MonoBehaviour
 
     void Awake()
     {
+        GameEvents.current.AntagonistAppear();
+
         animator = GetComponent<Animator>();
 
         CheckCountOfRunes();
@@ -79,7 +81,9 @@ public class AntagonistBehavor : MonoBehaviour
 
     private void DisappearAnimation()
     {
+        GameEvents.current.AntagonistDisappear();
         animator.SetBool("Disappear", true);
     }
+
 }
 
