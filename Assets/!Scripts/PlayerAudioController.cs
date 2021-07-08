@@ -18,26 +18,32 @@ public class PlayerAudioController : MonoBehaviour
 
     private IEnumerator AudioEffectOnHealthLoss()
     {
-        healthPoints = health.playerHealth;
-
         while (gameObject)
         {
-            if (healthPoints < 50)
+            healthPoints = health.playerHealth;
+
+            if (healthPoints < 50f && healthPoints > 30f)
             {
-                breathingAudioSource.Play();
+                if(!breathingAudioSource.isPlaying)
+                    breathingAudioSource.Play();
+
                 masterAudioMixer.FindSnapshot("DamagedHealthSnapshot").TransitionTo(5f);
             }
-            else if(healthPoints < 30)
+
+            if(healthPoints < 30f)
             {
                 masterAudioMixer.FindSnapshot("LowHealthSnapshot").TransitionTo(5f);
             }
-            else
+
+            if(healthPoints < 100f && healthPoints > 50f)
             {
-                breathingAudioSource.Stop();
-                masterAudioMixer.FindSnapshot("DefaultSnapshot").TransitionTo(5f);
+                masterAudioMixer.FindSnapshot("DefaultSnapshot").TransitionTo(10f);
+                if(healthPoints > 70)
+                    breathingAudioSource.Stop();
             }
+
+            yield return new WaitForSeconds(.3f);
         }
-        yield return new WaitForSeconds(.3f);
     }
 
     void Update()

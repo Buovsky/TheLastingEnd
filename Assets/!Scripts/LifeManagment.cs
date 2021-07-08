@@ -29,12 +29,6 @@ public class LifeManagment : MonoBehaviour
         GameEvents.current.onAntagonistDisappear += AntagonistDisappear;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private IEnumerator CheckPostion()
     {
         while (isAntagonistAlive)
@@ -71,7 +65,6 @@ public class LifeManagment : MonoBehaviour
 
     private void AntagonistAppear()
     {
-        
         antagonist = GameObject.FindGameObjectWithTag("Antagonist");
         antagonistPos = antagonist.transform;
         isAntagonistAlive = true;

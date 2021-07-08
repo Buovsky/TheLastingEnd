@@ -30,8 +30,8 @@ public class PostProcessingEffects : MonoBehaviour
 
             if (healthPoints < 100)
             {
-                float vignetteValue = 1f - (healthPoints / 100f) + .219f;
-                _Vignette.intensity.value = Mathf.Clamp(vignetteValue, .219f, .5f);
+                float vignetteValue = (1f - (healthPoints / 100f) + .219f) * .7f;
+                _Vignette.intensity.value = Mathf.Clamp(vignetteValue, .219f, .6f);
 
                 float depthOfFieldValue = 1f - (healthPoints / 100f);
                 _DepthOfField.focalLength.value = Mathf.Clamp(depthOfFieldValue, 1f, 20f);
