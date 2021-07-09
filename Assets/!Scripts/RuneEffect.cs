@@ -14,7 +14,9 @@ public class RuneEffect : MonoBehaviour
 
     [SerializeField] private GameObject nightVision;
 
-
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animator runeAnimator1;
+    [SerializeField] private Animator runeAnimator2;
 
 
 
@@ -49,22 +51,29 @@ public class RuneEffect : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("Liczba run" + runeCount);
+                
                 runeCount++;
+                Debug.Log("Liczba run" + runeCount);
                 if (runeCount == 1)
                 {
-                    runeOne.SetActive(false);
+                    //runeOne.SetActive(false);
                     text.SetActive(false);
-
+                    animator.enabled = true;
+                    animator.SetTrigger("Rune_1_Gather");
+                    runeAnimator1.SetBool("Gathered", true);
                 }
 
                 if (runeCount == 2)
                 {
-                    runeTwo.SetActive(false);
+                    //runeTwo.SetActive(false);
+                    animator.enabled = true;
+                    animator.SetTrigger("Rune_2_Gather");
+                    runeAnimator2.SetBool("Gathered", true);
                     text.SetActive(false);
                 }
 
             }
+            
         }
     }
 
@@ -93,6 +102,12 @@ public class RuneEffect : MonoBehaviour
     void TurnOff()
     {
         nightVision.SetActive(false);
+    }
+
+    void TurnOffAnimator()
+    {
+        animator.enabled = false;
+        Debug.Log("Wyłącznie animnatora");
     }
 
 
