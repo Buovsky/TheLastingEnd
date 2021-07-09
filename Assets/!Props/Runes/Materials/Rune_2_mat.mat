@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rune_2_mat
+  m_Shader: {fileID: -6465566751694194690, guid: 4fd73237e3c17f24ea5f64d98aa1579a, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_ab913b41f70b4569a142ed970840a730:
+        m_Texture: {fileID: 2800000, guid: a3835049db2b89742beda3790ef0189c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 8fefb9076f81ecb4d90efcc90ed78870, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: dc569a4d9a826524faafda1ea2bf4b8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: a3835049db2b89742beda3790ef0189c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Percent: -0.1
+    - Vector1_0528d6be2f6445549bb582691c6db945: 4.73
+    - _AmbientOcclusion: 0.212
+    - _CutoffHeight: 25
+    - _EdgeWidth: 3.4
+    - _Metalic: 0.386
+    - _NoiseScale: 102.1
+    - _NoiseStrength: 23.6
+    - _Smoothness: 0.231
+    m_Colors:
+    - Color_e2e8e7aff0ff45fbb1f189f48f25530c: {r: 1.1353015, g: 0, b: 0, a: 0}
+    - _Albedo: {r: 0, g: 0, b: 0, a: 1}
+    - _AlbedoColor: {r: 0.5168084, g: 0.49145633, b: 1.7080123, a: 0}
+    - _EdgeColor: {r: 0.22767979, g: 0.30012336, b: 1.2315407, a: 0.4745098}
+  m_BuildTextureStacks: []

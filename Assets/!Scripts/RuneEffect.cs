@@ -9,6 +9,9 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private GameObject _sphere;
     [SerializeField] private GameObject spawnPoint;
 
+    [SerializeField] private Material watchTowerMat;
+    [SerializeField] private Color watchTower_color;
+
     [SerializeField] private GameObject runeOne;
     [SerializeField] private GameObject runeTwo;
 
@@ -25,7 +28,7 @@ public class RuneEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
     }
 
     // Update is called once per frame
@@ -53,6 +56,7 @@ public class RuneEffect : MonoBehaviour
             {
                 
                 runeCount++;
+                watchTowerMat.SetVector("_EmissionColor", watchTower_color * .6f);
                 Debug.Log("Liczba run" + runeCount);
                 if (runeCount == 1)
                 {
@@ -65,6 +69,7 @@ public class RuneEffect : MonoBehaviour
 
                 if (runeCount == 2)
                 {
+                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * .5f);
                     //runeTwo.SetActive(false);
                     animator.enabled = true;
                     animator.SetTrigger("Rune_2_Gather");

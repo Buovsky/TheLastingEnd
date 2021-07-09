@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glow Dissolve Material
+  m_Name: Rune_1_mat
   m_Shader: {fileID: -6465566751694194690, guid: 4fd73237e3c17f24ea5f64d98aa1579a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -61,5 +61,5 @@ Material:
     - Color_e2e8e7aff0ff45fbb1f189f48f25530c: {r: 1.1353015, g: 0, b: 0, a: 0}
     - _Albedo: {r: 0, g: 0, b: 0, a: 1}
     - _AlbedoColor: {r: 0.93697757, g: 0.3964136, b: 1.2793348, a: 0}
-    - _EdgeColor: {r: 0.22767979, g: 0.30012336, b: 1.2315407, a: 0.4745098}
+    - _EdgeColor: {r: 1.03849, g: 0, b: 1.6131809, a: 0.4745098}
   m_BuildTextureStacks: []
