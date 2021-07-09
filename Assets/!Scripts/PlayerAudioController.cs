@@ -55,7 +55,6 @@ public class PlayerAudioController : MonoBehaviour
         if(!deathAudio.enabled)
             masterAudioMixer.FindSnapshot("PlayerDeathSnapshot").TransitionTo(4f);
         deathAudio.enabled = true;
-        Debug.Log("DEATH AUDIO");
     }
 
     private void OnDestroy()
