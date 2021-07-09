@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 
 public class LifeManagment : MonoBehaviour
 {
-    [SerializeField] private PostProcessVolume volume;
-
-    private Vignette _Vignette;
-
     private bool isAntagonistAlive;
     private GameObject antagonist;
     private Transform antagonistPos;
+
+    private CharacterController _charController;
+    private Rigidbody _rigidbody;
+    private CapsuleCollider _capsuleCollider;
+
+    private bool isPlayerDead = false;
 
     [SerializeField] private float minDist = 1f;
     [SerializeField] private float maxDist = 15f;
@@ -27,6 +29,20 @@ public class LifeManagment : MonoBehaviour
         StartCoroutine(HealthRegeneration());
         GameEvents.current.onAntagonistAppear += AntagonistAppear;
         GameEvents.current.onAntagonistDisappear += AntagonistDisappear;
+
+        _charController = gameObject.GetComponent(typeof(CharacterController)) as CharacterController;
+        _rigidbody = gameObject.GetComponent(typeof(Rigidbody)) as Rigidbody;
+        _capsuleCollider = gameObject.GetComponent(typeof(CapsuleCollider)) as CapsuleCollider;
+    }
+
+    private void Update()
+    {
+        if(playerHealth < 0 && !isPlayerDead)
+        {
+            isPlayerDead = true;
+            PlayerDeath();
+            
+        }
     }
 
     private IEnumerator CheckPostion()
@@ -74,6 +90,23 @@ public class LifeManagment : MonoBehaviour
     {
         isAntagonistAlive = false;
         StopCoroutine(CheckPostion());
+    }
+
+    private void PlayerDeath()
+    {
+        _charController.enabled = false;
+        _rigidbody.isKinematic = false;
+        _rigidbody.AddForce(transform.forward * 200);
+        _rigidbody.AddForce(transform.up * 100);
+        _capsuleCollider.enabled = true;
+
+        GameEvents.current.PlayerDeath();
+        Invoke("RestartScene", 5f);
+    }
+
+    private void RestartScene()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     private void OnDestroy()

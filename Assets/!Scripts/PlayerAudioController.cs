@@ -9,10 +9,14 @@ public class PlayerAudioController : MonoBehaviour
     [SerializeField] private AudioSource breathingAudioSource;
     [SerializeField] private AudioMixer masterAudioMixer;
 
+    [SerializeField] private AudioSource deathAudio;
+
     private float healthPoints = 100f;
 
     void Start()
     {
+        masterAudioMixer.FindSnapshot("DefaultSnapshot").TransitionTo(.1f);
+        GameEvents.current.onPlayerDeath += PlayDeathSnapshot;
         StartCoroutine(AudioEffectOnHealthLoss());
     }
 
@@ -30,7 +34,7 @@ public class PlayerAudioController : MonoBehaviour
                 masterAudioMixer.FindSnapshot("DamagedHealthSnapshot").TransitionTo(5f);
             }
 
-            if(healthPoints < 30f)
+            if(healthPoints < 30f && healthPoints > 0f)
             {
                 masterAudioMixer.FindSnapshot("LowHealthSnapshot").TransitionTo(5f);
             }
@@ -46,8 +50,17 @@ public class PlayerAudioController : MonoBehaviour
         }
     }
 
-    void Update()
+    void PlayDeathSnapshot()
     {
-        
+        if(!deathAudio.enabled)
+            masterAudioMixer.FindSnapshot("PlayerDeathSnapshot").TransitionTo(4f);
+        deathAudio.enabled = true;
+        Debug.Log("DEATH AUDIO");
     }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.onPlayerDeath -= PlayDeathSnapshot;
+    }
+
 }

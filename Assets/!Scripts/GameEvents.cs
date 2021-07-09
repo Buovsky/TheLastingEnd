@@ -15,14 +15,18 @@ public class GameEvents : MonoBehaviour
     public event Action onAntagonistAppear;
     public event Action onAntagonistDisappear;
 
+    public event Action onPlayerDeath;
+
     public void AntagonistAppear()
     {
         onAntagonistAppear?.Invoke();
-        Debug.Log("EVENT STARTED");
     }
     public void AntagonistDisappear()
     {
         onAntagonistDisappear?.Invoke();
-        Debug.Log("EVENT ENDED");
+    }
+    public void PlayerDeath()
+    {
+        onPlayerDeath?.Invoke();
     }
 }
