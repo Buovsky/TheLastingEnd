@@ -841,9 +841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 968359475427965297}
-  firstDie: 120
-  secondDie: 50
-  thirdDie: 80
+  firstDie: 60
+  secondDie: 80
+  thirdDie: 100
   antagonistLive: 0
 --- !u!195 &968359475427965297
 NavMeshAgent:

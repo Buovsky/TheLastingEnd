@@ -22,34 +22,43 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private Animator runeAnimator2;
     [SerializeField] private Animator runeAnimator3;
 
+    [SerializeField] private float cooldownSphereTime = 5;
+    [SerializeField] private float cooldownVisionTime = 10;
 
+    private float nextSphereUseTime = 0;
+    private float nextVisionUseTime = 0;
 
     private bool isCollision = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(runeCount > 0)
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            if(Time.time > nextSphereUseTime)
             {
-                Spawn();
+                if (Input.GetKeyUp(KeyCode.E))
+                {
+                    Spawn();
+                    nextSphereUseTime = Time.time + cooldownSphereTime;
+                }
             }
         }
         if(runeCount > 1)
         {
-            if (Input.GetKeyUp(KeyCode.R))
+            if (Time.time > nextVisionUseTime)
             {
-                nightVision.SetActive(true);
-                Invoke("TurnOff", 10);
-                
+                if (Input.GetKeyUp(KeyCode.R))
+                {
+                    nightVision.SetActive(true);
+                    Invoke("TurnOff", 10);
+                    nextVisionUseTime = Time.time + cooldownVisionTime;
+                }
             }
+            
         }
         if(isCollision)
         {
@@ -124,6 +133,11 @@ public class RuneEffect : MonoBehaviour
     {
         animator.enabled = false;
         Debug.Log("Wyłącznie animnatora");
+    }
+
+    private void OnDestroy()
+    {
+        watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
     }
 
 
