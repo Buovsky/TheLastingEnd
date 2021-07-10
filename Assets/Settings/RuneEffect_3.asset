@@ -169,12 +169,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.761
+    m_Value: 0.792
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.298
+    m_Value: 0.328
     min: 0.01
     max: 1
   rounded:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: RuneEffect_2
+  m_Name: RuneEffect_3
   m_EditorClassIdentifier: 
   components:
   - {fileID: 849379129802519247}
@@ -354,6 +354,6 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.431
+    m_Value: 0.584
     min: 0
     max: 1

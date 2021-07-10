@@ -20,6 +20,7 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Animator runeAnimator1;
     [SerializeField] private Animator runeAnimator2;
+    [SerializeField] private Animator runeAnimator3;
 
 
 
@@ -74,6 +75,16 @@ public class RuneEffect : MonoBehaviour
                     animator.enabled = true;
                     animator.SetTrigger("Rune_2_Gather");
                     runeAnimator2.SetBool("Gathered", true);
+                    text.SetActive(false);
+                }
+
+                if (runeCount == 3)
+                {
+                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * .4f);
+                    //runeTwo.SetActive(false);
+                    animator.enabled = true;
+                    animator.SetTrigger("Rune_3_Gather");
+                    runeAnimator3.SetBool("Gathered", true);
                     text.SetActive(false);
                 }
 

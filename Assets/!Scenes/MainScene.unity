@@ -903,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967233
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &106741228
 Transform:
   m_ObjectHideFlags: 0
@@ -7227,6 +7227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0143965415072bf48880039c7ac5738b, type: 3}
+--- !u!95 &1065671189 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1030736675213958881, guid: 0143965415072bf48880039c7ac5738b, type: 3}
+  m_PrefabInstance: {fileID: 1065671188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1068624660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8265448719823027451, guid: 7541e6bf3153ea847a65ca3730d8e3a5, type: 3}
@@ -12238,19 +12243,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99939394
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0348005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00054329634
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00067110313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12321,6 +12326,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 203218906}
     - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: runeAnimator3
+      value: 
+      objectReference: {fileID: 1065671189}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: watchTowerMat
       value: 
       objectReference: {fileID: 2100000, guid: 332e2f63465ffbb4ca2fb20bcf84caeb, type: 2}
@@ -12341,9 +12350,13 @@ PrefabInstance:
       value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 544445498828420289, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: OutputAudioMixerGroup
+      propertyPath: m_Volume
+      value: 0.845
+      objectReference: {fileID: 0}
+    - target: {fileID: 544445498828420289, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 24300002, guid: fa0a879a40e44f74e8d67e0f302733df, type: 2}
+      objectReference: {fileID: 8300000, guid: 5083de357e5ddab44b12c51ef68076c4, type: 3}
     - target: {fileID: 6257850249943543693, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: volume
       value: 
