@@ -57,6 +57,11 @@ public class PlayerAudioController : MonoBehaviour
         deathAudio.enabled = true;
     }
 
+    public void GatherRuneSnapshotOn()
+    {
+        masterAudioMixer.FindSnapshot("LowHealthSnapshot").TransitionTo(2f);
+    }
+
     private void OnDestroy()
     {
         GameEvents.current.onPlayerDeath -= PlayDeathSnapshot;

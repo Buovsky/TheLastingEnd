@@ -12349,14 +12349,6 @@ PrefabInstance:
       propertyPath: watchTower_color.r
       value: 0.99999994
       objectReference: {fileID: 0}
-    - target: {fileID: 544445498828420289, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Volume
-      value: 0.845
-      objectReference: {fileID: 0}
-    - target: {fileID: 544445498828420289, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5083de357e5ddab44b12c51ef68076c4, type: 3}
     - target: {fileID: 6257850249943543693, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: volume
       value: 
