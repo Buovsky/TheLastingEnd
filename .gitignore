@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+#Textures atlases
+/Assets/Forest Environment Dynamic Nature Textures
