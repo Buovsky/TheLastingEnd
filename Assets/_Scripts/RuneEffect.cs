@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuneEffect : MonoBehaviour
 {
@@ -25,8 +26,13 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private float cooldownSphereTime = 5;
     [SerializeField] private float cooldownVisionTime = 10;
 
+    [SerializeField] private GameObject runeOneContainer;
+    [SerializeField] private Image runeOneImage;
+
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
+
+    bool isRuneOneOnCooldown = false;
 
     private bool isCollision = false;
 
@@ -38,14 +44,21 @@ public class RuneEffect : MonoBehaviour
     {
         if(runeCount > 0)
         {
+            runeOneContainer.SetActive(true);
             if(Time.time > nextSphereUseTime)
             {
+                isRuneOneOnCooldown = false;
                 if (Input.GetKeyUp(KeyCode.E))
                 {
                     Spawn();
                     nextSphereUseTime = Time.time + cooldownSphereTime;
+                    isRuneOneOnCooldown = true;
                 }
             }
+        }
+        else
+        {
+            runeOneContainer.SetActive(false);
         }
         if(runeCount > 1)
         {
@@ -59,7 +72,13 @@ public class RuneEffect : MonoBehaviour
                 }
             }
             
+        } 
+
+        if(isRuneOneOnCooldown)
+        {
+            CooldownUI(runeOneImage, cooldownSphereTime);
         }
+        
         if(isCollision)
         {
             if (Input.GetKeyDown(KeyCode.F))
@@ -100,6 +119,7 @@ public class RuneEffect : MonoBehaviour
             }
             
         }
+
     }
 
     void Spawn()
@@ -107,6 +127,16 @@ public class RuneEffect : MonoBehaviour
 
         GameObject locationSphere = Instantiate(_sphere, spawnPoint.transform.position, Quaternion.identity);
         
+    }
+
+        void CooldownUI(Image sprite, float cooldown)
+    {
+        sprite.fillAmount += 1/cooldown * Time.deltaTime;
+
+        if(sprite.fillAmount >= 1)
+        {
+            sprite.fillAmount = 0;
+        }
     }
 
     private void OnTriggerStay(Collider other)

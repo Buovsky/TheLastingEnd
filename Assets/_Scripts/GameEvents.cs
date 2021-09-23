@@ -17,6 +17,7 @@ public class GameEvents : MonoBehaviour
 
     public event Action onPlayerDeath;
 
+
     public void AntagonistAppear()
     {
         onAntagonistAppear?.Invoke();
