@@ -25,14 +25,16 @@ public class RuneEffect : MonoBehaviour
 
     [SerializeField] private float cooldownSphereTime = 5;
     [SerializeField] private float cooldownVisionTime = 10;
+    [SerializeField] private Image[] runeImage;
+    [SerializeField] private GameObject[] runeUIContainer;
 
-    [SerializeField] private GameObject runeOneContainer;
-    [SerializeField] private Image runeOneImage;
+
 
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
 
     bool isRuneOneOnCooldown = false;
+    bool isRuneTwoOnCooldown = false;
 
     private bool isCollision = false;
 
@@ -44,7 +46,7 @@ public class RuneEffect : MonoBehaviour
     {
         if(runeCount > 0)
         {
-            runeOneContainer.SetActive(true);
+            runeUIContainer[0].SetActive(true);
             if(Time.time > nextSphereUseTime)
             {
                 isRuneOneOnCooldown = false;
@@ -58,25 +60,37 @@ public class RuneEffect : MonoBehaviour
         }
         else
         {
-            runeOneContainer.SetActive(false);
+            runeUIContainer[0].SetActive(false);
         }
+
         if(runeCount > 1)
         {
+            runeUIContainer[1].SetActive(true);
             if (Time.time > nextVisionUseTime)
             {
+                isRuneTwoOnCooldown = false;
                 if (Input.GetKeyUp(KeyCode.R))
                 {
                     nightVision.SetActive(true);
                     Invoke("TurnOff", 10);
                     nextVisionUseTime = Time.time + cooldownVisionTime;
+                    isRuneTwoOnCooldown = true;
                 }
             }
-            
-        } 
+        }
+        else
+        {
+            runeUIContainer[1].SetActive(false);
+        }
 
         if(isRuneOneOnCooldown)
         {
-            CooldownUI(runeOneImage, cooldownSphereTime);
+            CooldownUI(runeImage[0], cooldownSphereTime);
+        }
+        
+        if(isRuneTwoOnCooldown)
+        {
+            CooldownUI(runeImage[1], cooldownVisionTime);
         }
         
         if(isCollision)

@@ -2451,13 +2451,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377213080}
-  m_LocalRotation: {x: 0.18495901, y: -0.79118675, z: 0.28859064, w: 0.50648713}
-  m_LocalPosition: {x: 95.53, y: 46.01, z: 102.05}
+  m_LocalRotation: {x: 0.19861202, y: -0.8146094, z: 0.27937007, w: 0.4678859}
+  m_LocalPosition: {x: 94.14, y: 45.37, z: 105.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 48273876}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40.092, y: -114.758, z: -0.025}
+  m_LocalEulerAnglesHint: {x: 39.867, y: -121.942, z: -4.645}
 --- !u!108 &377213082
 Light:
   m_ObjectHideFlags: 0
@@ -2469,7 +2469,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.18405126, g: 0.40922016, b: 0.8301887, a: 1}
+  m_Color: {r: 0.4190548, g: 0.51219773, b: 0.6886792, a: 1}
   m_Intensity: 100
   m_Range: 76
   m_SpotAngle: 136.72278
@@ -7284,6 +7284,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4246442367723126, guid: ed2faaec6760efe47bb8c4ca3dab6e9d, type: 3}
   m_PrefabInstance: {fileID: 1109972301}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1111523364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5521127595969951107, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_PrefabInstance: {fileID: 2009836452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1114039207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010140763972, guid: b12c8b6046ef0604b96e60fe14b9c16e, type: 3}
@@ -9088,6 +9099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534778d3f43b4544c872480485624a55, type: 3}
+--- !u!1 &1468956826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8338724142102430986, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_PrefabInstance: {fileID: 2009836452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477303232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11252,8 +11268,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.22846209, g: 0.24076779, b: 0.3207547, a: 1}
-  m_Intensity: 0.11
+  m_Color: {r: 0.043137256, g: 0.0627451, b: 0.16862746, a: 1}
+  m_Intensity: 5.21
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12213,10 +12229,38 @@ PrefabInstance:
       propertyPath: runeAnimator3
       value: 
       objectReference: {fileID: 1065671189}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: runeImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 1111523364}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: runeUIContainer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1468956826}
+    - target: {fileID: 645801873667821071, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: secureDelay
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186252968578356880, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: secureDelay
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6257850249943543693, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: volume
       value: 
       objectReference: {fileID: 1139254041}
+    - target: {fileID: 6287944664819518219, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: secureDelay
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699034813922633323, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999882980519263245, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: secureDelay
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1001 &2017305028
