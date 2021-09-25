@@ -7284,17 +7284,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4246442367723126, guid: ed2faaec6760efe47bb8c4ca3dab6e9d, type: 3}
   m_PrefabInstance: {fileID: 1109972301}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1111523364 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5521127595969951107, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-  m_PrefabInstance: {fileID: 2009836452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1114039207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010140763972, guid: b12c8b6046ef0604b96e60fe14b9c16e, type: 3}
@@ -9099,11 +9088,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534778d3f43b4544c872480485624a55, type: 3}
---- !u!1 &1468956826 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8338724142102430986, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-  m_PrefabInstance: {fileID: 2009836452}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477303232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12229,38 +12213,10 @@ PrefabInstance:
       propertyPath: runeAnimator3
       value: 
       objectReference: {fileID: 1065671189}
-    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: runeImage.Array.data[1]
-      value: 
-      objectReference: {fileID: 1111523364}
-    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: runeUIContainer.Array.data[1]
-      value: 
-      objectReference: {fileID: 1468956826}
-    - target: {fileID: 645801873667821071, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: secureDelay
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186252968578356880, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: secureDelay
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 6257850249943543693, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: volume
       value: 
       objectReference: {fileID: 1139254041}
-    - target: {fileID: 6287944664819518219, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: secureDelay
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699034813922633323, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6999882980519263245, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: secureDelay
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1001 &2017305028
