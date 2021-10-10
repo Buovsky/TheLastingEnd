@@ -28,18 +28,18 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private Image[] runeImage;
     [SerializeField] private GameObject[] runeUIContainer;
 
-
+    private string currentPickUpRune = null;
 
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
 
     bool isRuneOneOnCooldown = false;
     bool isRuneTwoOnCooldown = false;
-
-    private bool isCollision = false;
-
+    
     void Start()
     {
+        GameEvents.current.onRaycastHit += RaycastHitInfo;
+        GameEvents.current.onRaycastMiss += RaycastMiss;
         watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
     }
     void Update()
@@ -93,15 +93,14 @@ public class RuneEffect : MonoBehaviour
             CooldownUI(runeImage[1], cooldownVisionTime);
         }
         
-        if(isCollision)
+        if(currentPickUpRune != null)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                
                 runeCount++;
                 watchTowerMat.SetVector("_EmissionColor", watchTower_color * .6f);
                 Debug.Log("Liczba run" + runeCount);
-                if (runeCount == 1)
+                if (currentPickUpRune == "Rune1")
                 {
                     //runeOne.SetActive(false);
                     text.SetActive(false);
@@ -110,7 +109,7 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator1.SetBool("Gathered", true);
                 }
 
-                if (runeCount == 2)
+                if (currentPickUpRune == "Rune2")
                 {
                     watchTowerMat.SetVector("_EmissionColor", watchTower_color * .5f);
                     //runeTwo.SetActive(false);
@@ -120,7 +119,7 @@ public class RuneEffect : MonoBehaviour
                     text.SetActive(false);
                 }
 
-                if (runeCount == 3)
+                if (currentPickUpRune == "Rune3")
                 {
                     watchTowerMat.SetVector("_EmissionColor", watchTower_color * .4f);
                     //runeTwo.SetActive(false);
@@ -143,7 +142,7 @@ public class RuneEffect : MonoBehaviour
         
     }
 
-        void CooldownUI(Image sprite, float cooldown)
+    void CooldownUI(Image sprite, float cooldown)
     {
         sprite.fillAmount += 1/cooldown * Time.deltaTime;
 
@@ -153,21 +152,16 @@ public class RuneEffect : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void RaycastHitInfo(string hitInfo)
     {
-        if(other.gameObject.tag == "Rune")
-        {
-            text.SetActive(true);
-            isCollision = true;
-        }
+        currentPickUpRune = hitInfo;
+        text.SetActive(true);
     }
-
-    private void OnTriggerExit(Collider other)
+    private void RaycastMiss()
     {
+        currentPickUpRune = null;
         text.SetActive(false);
-        isCollision = false;
     }
-
     void TurnOff()
     {
         nightVision.SetActive(false);
@@ -182,6 +176,8 @@ public class RuneEffect : MonoBehaviour
     private void OnDestroy()
     {
         watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
+        GameEvents.current.onRaycastHit -= RaycastHitInfo;
+        GameEvents.current.onRaycastMiss -= RaycastMiss;
     }
 
 

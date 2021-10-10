@@ -17,6 +17,9 @@ public class GameEvents : MonoBehaviour
 
     public event Action onPlayerDeath;
 
+    public event Action<String> onRaycastHit;
+    public event Action onRaycastMiss;
+
 
     public void AntagonistAppear()
     {
@@ -29,5 +32,15 @@ public class GameEvents : MonoBehaviour
     public void PlayerDeath()
     {
         onPlayerDeath?.Invoke();
+    }
+
+    public void RaycastHit(string hitTag)
+    {
+        onRaycastHit?.Invoke(hitTag);
+    }
+    
+    public void RaycastMiss()
+    {
+        onRaycastMiss?.Invoke();
     }
 }

@@ -55,9 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune_3_Shrine
       objectReference: {fileID: 0}
+    - target: {fileID: 2309201640136176309, guid: a93c06ab40ba2eb46b8180ff06357593, type: 3}
+      propertyPath: m_TagString
+      value: Rune3
+      objectReference: {fileID: 0}
     - target: {fileID: 2331128796014015241, guid: a93c06ab40ba2eb46b8180ff06357593, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c86e5f01741d3ae46b70305170f08c1f, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a93c06ab40ba2eb46b8180ff06357593, type: 3}

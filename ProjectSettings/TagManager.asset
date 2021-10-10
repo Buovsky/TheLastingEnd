@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Antagonist
+  - Rune
+  - Rune1
+  - Rune2
+  - Rune3
   layers:
   - Default
   - TransparentFX
@@ -12,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Runes
   - 
   - 
   - 

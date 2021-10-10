@@ -104,12 +104,11 @@ GameObject:
   - component: {fileID: 2307627327911856639}
   - component: {fileID: 2341131271929138825}
   - component: {fileID: 2331128796014015241}
-  - component: {fileID: 2372056170790950009}
   - component: {fileID: 2337235532863915831}
   - component: {fileID: 4011741329406240093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rune_1 - Glade
-  m_TagString: Rune
+  m_TagString: Rune1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,20 +180,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2372056170790950009
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2309201640136176309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 742263ad15a97bc49a4f7df707e63198, type: 3}
 --- !u!135 &2337235532863915831
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -203,10 +188,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309201640136176309}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 19.93
+  m_Radius: 6
   m_Center: {x: 0.11257685, y: -0.3627427, z: 0.037428387}
 --- !u!95 &4011741329406240093
 Animator:
@@ -238,7 +223,6 @@ GameObject:
   - component: {fileID: 810515565926610038}
   - component: {fileID: 831872358495064690}
   - component: {fileID: 6729754274765337925}
-  - component: {fileID: 4425393579665866462}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -309,20 +293,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4425393579665866462
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2758818277941065309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &7586152317420964582
 GameObject:
   m_ObjectHideFlags: 0
