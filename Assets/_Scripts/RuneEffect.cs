@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class RuneEffect : MonoBehaviour
 {
     public int runeCount = 0;
-    [SerializeField] private GameObject text;
+    [SerializeField] private GameObject _text;
     [SerializeField] private GameObject _sphere;
     [SerializeField] private GameObject spawnPoint;
 
     [SerializeField] private Material watchTowerMat;
     [SerializeField] private Color watchTower_color;
-
+    private float watchTowerMultiplier = .6f;
     [SerializeField] private GameObject runeOne;
     [SerializeField] private GameObject runeTwo;
 
@@ -27,6 +27,8 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private float cooldownVisionTime = 10;
     [SerializeField] private Image[] runeImage;
     [SerializeField] private GameObject[] runeUIContainer;
+
+    private int[] collectedRune = {0, 0, 0, 0, 0, 0};
 
     private string currentPickUpRune = null;
 
@@ -44,7 +46,7 @@ public class RuneEffect : MonoBehaviour
     }
     void Update()
     {
-        if(runeCount > 0)
+        if(collectedRune[0] == 1)
         {
             runeUIContainer[0].SetActive(true);
             if(Time.time > nextSphereUseTime)
@@ -63,7 +65,7 @@ public class RuneEffect : MonoBehaviour
             runeUIContainer[0].SetActive(false);
         }
 
-        if(runeCount > 1)
+        if(collectedRune[1] == 1)
         {
             runeUIContainer[1].SetActive(true);
             if (Time.time > nextVisionUseTime)
@@ -98,35 +100,80 @@ public class RuneEffect : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 runeCount++;
-                watchTowerMat.SetVector("_EmissionColor", watchTower_color * .6f);
                 Debug.Log("Liczba run" + runeCount);
                 if (currentPickUpRune == "Rune1")
                 {
                     //runeOne.SetActive(false);
-                    text.SetActive(false);
+                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
+                    _text.SetActive(false);
                     animator.enabled = true;
-                    animator.SetTrigger("Rune_1_Gather");
+                    
+                    switch(runeCount)
+                    {
+                        case 1:
+                            animator.SetTrigger("Rune_1_Gather");
+                            break;
+                        case 2:
+                            animator.SetTrigger("Rune_2_Gather");
+                            break;
+                        case 3:
+                            animator.SetTrigger("Rune_3_Gather");
+                            break;
+                    }
+                    
                     runeAnimator1.SetBool("Gathered", true);
+                    collectedRune[0] = 1;
+                    watchTowerMultiplier = .5f;
                 }
 
                 if (currentPickUpRune == "Rune2")
                 {
-                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * .5f);
+                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
                     //runeTwo.SetActive(false);
                     animator.enabled = true;
-                    animator.SetTrigger("Rune_2_Gather");
+
+                    switch(runeCount)
+                    {
+                        case 1:
+                            animator.SetTrigger("Rune_1_Gather");
+                            break;
+                        case 2:
+                            animator.SetTrigger("Rune_2_Gather");
+                            break;
+                        case 3:
+                            animator.SetTrigger("Rune_3_Gather");
+                            break;
+                    }
+
                     runeAnimator2.SetBool("Gathered", true);
-                    text.SetActive(false);
+                    _text.SetActive(false);
+                    collectedRune[1] = 1;
+                    watchTowerMultiplier = .4f;
                 }
 
                 if (currentPickUpRune == "Rune3")
                 {
-                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * .4f);
+                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
                     //runeTwo.SetActive(false);
                     animator.enabled = true;
-                    animator.SetTrigger("Rune_3_Gather");
+
+                    switch(runeCount)
+                    {
+                        case 1:
+                            animator.SetTrigger("Rune_1_Gather");
+                            break;
+                        case 2:
+                            animator.SetTrigger("Rune_2_Gather");
+                            break;
+                        case 3:
+                            animator.SetTrigger("Rune_3_Gather");
+                            break;
+                    }
+
                     runeAnimator3.SetBool("Gathered", true);
-                    text.SetActive(false);
+                    _text.SetActive(false);
+                    collectedRune[2] = 1;
+                    watchTowerMultiplier = .3f;
                 }
 
             }
@@ -155,12 +202,12 @@ public class RuneEffect : MonoBehaviour
     private void RaycastHitInfo(string hitInfo)
     {
         currentPickUpRune = hitInfo;
-        text.SetActive(true);
+        _text.SetActive(true);
     }
     private void RaycastMiss()
     {
         currentPickUpRune = null;
-        text.SetActive(false);
+        _text.SetActive(false);
     }
     void TurnOff()
     {
@@ -179,6 +226,4 @@ public class RuneEffect : MonoBehaviour
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
     }
-
-
 }

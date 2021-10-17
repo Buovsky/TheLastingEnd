@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runeCount: 0
-  text: {fileID: 1316041377}
+  _text: {fileID: 1316041377}
   _sphere: {fileID: 5407007493114514595, guid: 021d76f21561bcd46ba84f0eeaa4467a, type: 3}
   spawnPoint: {fileID: 8614839937861798521}
   watchTowerMat: {fileID: 2100000, guid: 332e2f63465ffbb4ca2fb20bcf84caeb, type: 2}
