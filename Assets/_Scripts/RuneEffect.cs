@@ -28,7 +28,7 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private Image[] runeImage;
     [SerializeField] private GameObject[] runeUIContainer;
 
-    private int[] collectedRune = {0, 0, 0, 0, 0, 0};
+    public int[] CollectedRune = {0, 0, 0, 0, 0, 0};
 
     private string currentPickUpRune = null;
 
@@ -43,10 +43,16 @@ public class RuneEffect : MonoBehaviour
         GameEvents.current.onRaycastHit += RaycastHitInfo;
         GameEvents.current.onRaycastMiss += RaycastMiss;
         watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
+
+        if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
+        {
+            runeUIContainer[0].SetActive(true);
+            runeUIContainer[1].SetActive(true);
+        }
     }
     void Update()
     {
-        if(collectedRune[0] == 1)
+        if(CollectedRune[0] == 1)
         {
             runeUIContainer[0].SetActive(true);
             if(Time.time > nextSphereUseTime)
@@ -65,7 +71,7 @@ public class RuneEffect : MonoBehaviour
             runeUIContainer[0].SetActive(false);
         }
 
-        if(collectedRune[1] == 1)
+        if(CollectedRune[1] == 1)
         {
             runeUIContainer[1].SetActive(true);
             if (Time.time > nextVisionUseTime)
@@ -122,7 +128,7 @@ public class RuneEffect : MonoBehaviour
                     }
                     
                     runeAnimator1.SetBool("Gathered", true);
-                    collectedRune[0] = 1;
+                    CollectedRune[0] = 1;
                     watchTowerMultiplier = .5f;
                 }
 
@@ -147,7 +153,7 @@ public class RuneEffect : MonoBehaviour
 
                     runeAnimator2.SetBool("Gathered", true);
                     _text.SetActive(false);
-                    collectedRune[1] = 1;
+                    CollectedRune[1] = 1;
                     watchTowerMultiplier = .4f;
                 }
 
@@ -172,7 +178,7 @@ public class RuneEffect : MonoBehaviour
 
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
-                    collectedRune[2] = 1;
+                    CollectedRune[2] = 1;
                     watchTowerMultiplier = .3f;
                 }
 

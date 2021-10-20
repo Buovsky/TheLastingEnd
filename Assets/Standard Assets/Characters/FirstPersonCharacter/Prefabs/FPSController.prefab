@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8709978748371359401}
   - component: {fileID: 6257850249943543693}
   - component: {fileID: 1853875483}
+  - component: {fileID: 3856572594197832091}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 3422218351205783080}
@@ -266,6 +267,21 @@ MonoBehaviour:
   runeUIContainer:
   - {fileID: 3682987037817856003}
   - {fileID: 8338724142102430986}
+  CollectedRune: 000000000000000000000000000000000000000000000000
+--- !u!114 &3856572594197832091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478ae7c6243165340a14e99431ad76c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 100000}
+  Runes: {fileID: 1853875483}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 0
