@@ -12177,6 +12177,10 @@ PrefabInstance:
       propertyPath: m_WalkSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_MouseLook.lockCursor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -12210,6 +12214,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: WatchTowerMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 332e2f63465ffbb4ca2fb20bcf84caeb, type: 2}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: runeAnimator1
       value: 
       objectReference: {fileID: 492693388}
@@ -12221,6 +12229,22 @@ PrefabInstance:
       propertyPath: runeAnimator3
       value: 
       objectReference: {fileID: 1065671189}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: watchTower_color.a
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: watchTower_color.b
+      value: 1.3176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: watchTower_color.g
+      value: 1.3176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: watchTower_color.r
+      value: 1.3176471
+      objectReference: {fileID: 0}
     - target: {fileID: 6257850249943543693, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: volume
       value: 

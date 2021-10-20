@@ -10,9 +10,12 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private GameObject _sphere;
     [SerializeField] private GameObject spawnPoint;
 
-    [SerializeField] private Material watchTowerMat;
+    [SerializeField] public Material WatchTowerMat;
+    
+    [ColorUsage(true, true)]
     [SerializeField] private Color watchTower_color;
-    private float watchTowerMultiplier = .6f;
+    private float watchTowerMultiplier = .4f;
+    public Vector4 WatchtowerColorHolderer;
     [SerializeField] private GameObject runeOne;
     [SerializeField] private GameObject runeTwo;
 
@@ -42,7 +45,14 @@ public class RuneEffect : MonoBehaviour
     {
         GameEvents.current.onRaycastHit += RaycastHitInfo;
         GameEvents.current.onRaycastMiss += RaycastMiss;
-        watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
+        if(runeCount == 0)
+        {
+            WatchTowerMat.SetVector("_EmissionColor", watchTower_color);
+        }
+        else
+        {
+            WatchTowerMat.SetVector("_EmissionColor", WatchtowerColorHolderer);
+        }
 
         if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
         {
@@ -110,7 +120,8 @@ public class RuneEffect : MonoBehaviour
                 if (currentPickUpRune == "Rune1")
                 {
                     //runeOne.SetActive(false);
-                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
+                    WatchtowerColorHolderer = watchTower_color * watchTowerMultiplier;
+                    WatchTowerMat.SetVector("_EmissionColor", WatchtowerColorHolderer);
                     _text.SetActive(false);
                     animator.enabled = true;
                     
@@ -129,12 +140,13 @@ public class RuneEffect : MonoBehaviour
                     
                     runeAnimator1.SetBool("Gathered", true);
                     CollectedRune[0] = 1;
-                    watchTowerMultiplier = .5f;
+                    watchTowerMultiplier = .3f;
                 }
 
                 if (currentPickUpRune == "Rune2")
                 {
-                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
+                    WatchtowerColorHolderer = watchTower_color * watchTowerMultiplier;
+                    WatchTowerMat.SetVector("_EmissionColor", WatchtowerColorHolderer);
                     //runeTwo.SetActive(false);
                     animator.enabled = true;
 
@@ -154,12 +166,13 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator2.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[1] = 1;
-                    watchTowerMultiplier = .4f;
+                    watchTowerMultiplier = .2f;
                 }
 
                 if (currentPickUpRune == "Rune3")
                 {
-                    watchTowerMat.SetVector("_EmissionColor", watchTower_color * watchTowerMultiplier);
+                    WatchtowerColorHolderer = watchTower_color * watchTowerMultiplier;
+                    WatchTowerMat.SetVector("_EmissionColor", WatchtowerColorHolderer);
                     //runeTwo.SetActive(false);
                     animator.enabled = true;
 
@@ -179,7 +192,7 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
-                    watchTowerMultiplier = .3f;
+                    watchTowerMultiplier = .1f;
                 }
 
             }
@@ -228,7 +241,7 @@ public class RuneEffect : MonoBehaviour
 
     private void OnDestroy()
     {
-        watchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
+        WatchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
     }

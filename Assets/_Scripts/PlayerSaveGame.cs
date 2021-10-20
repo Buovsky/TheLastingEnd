@@ -14,6 +14,7 @@ public class PlayerSaveGame : MonoBehaviour
         _charController.enabled = false;
         LoadPosition();
         LoadRunes();
+        LoadWatchTowerColor();
         _charController.enabled = true;
         
     }
@@ -24,6 +25,7 @@ public class PlayerSaveGame : MonoBehaviour
         {
             SavePosition();
             SaveRunes();
+            SaveWatchTowerColor();
         }
 
         if (Input.GetKeyDown(KeyCode.F9))
@@ -54,6 +56,14 @@ public class PlayerSaveGame : MonoBehaviour
         }
     }
 
+    void SaveWatchTowerColor()
+    {
+        PlayerPrefs.SetFloat("WatchTowerColor_X", Runes.WatchtowerColorHolderer.x);
+        PlayerPrefs.SetFloat("WatchTowerColor_Y", Runes.WatchtowerColorHolderer.y);
+        PlayerPrefs.SetFloat("WatchTowerColor_Z", Runes.WatchtowerColorHolderer.z);
+        PlayerPrefs.SetFloat("WatchTowerColor_W", Runes.WatchtowerColorHolderer.w);
+    }
+
     void LoadGame()
     {
         SceneManager.LoadScene("MainScene");
@@ -65,22 +75,31 @@ public class PlayerSaveGame : MonoBehaviour
         float yPos = PlayerPrefs.GetFloat("YPosition");
         float zPos = PlayerPrefs.GetFloat("ZPosition");
 
-        Debug.Log(xPos);
-        Debug.Log(yPos);
-        Debug.Log(zPos);
-
-        _player.transform.position = new Vector3(xPos, yPos, zPos);
+        if(xPos != 0 && yPos != 0 && zPos != 0)
+        {
+            _player.transform.position = new Vector3(xPos, yPos, zPos);
+        }
     }
 
     void LoadRunes()
     {
-        int runeCount = PlayerPrefs.GetInt("RuneCount", -1);
+        int runeCount = PlayerPrefs.GetInt("RuneCount", 0);
 
         Runes.runeCount = runeCount;
 
         for(int i = 0; i < Runes.CollectedRune.Length; i++)
         {
-            Runes.CollectedRune[i] = PlayerPrefs.GetInt("CollectedRune_" + i, -1);
+            Runes.CollectedRune[i] = PlayerPrefs.GetInt("CollectedRune_" + i, 0);
         }
+    }
+
+    void LoadWatchTowerColor()
+    {
+        float x = PlayerPrefs.GetFloat("WatchTowerColor_X", Runes.WatchtowerColorHolderer.x);
+        float y = PlayerPrefs.GetFloat("WatchTowerColor_Y", Runes.WatchtowerColorHolderer.y);
+        float z = PlayerPrefs.GetFloat("WatchTowerColor_Z", Runes.WatchtowerColorHolderer.z);
+        float w = PlayerPrefs.GetFloat("WatchTowerColor_W", Runes.WatchtowerColorHolderer.w);
+
+        Runes.WatchtowerColorHolderer = new Vector4(x, y, z, w);
     }
 }
