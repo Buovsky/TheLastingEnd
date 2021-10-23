@@ -14,7 +14,7 @@ public class RuneEffect : MonoBehaviour
     
     [ColorUsage(true, true)]
     [SerializeField] private Color watchTower_color;
-    private float watchTowerMultiplier = .4f;
+    private float watchTowerMultiplier = .5f;
     public Vector4 WatchtowerColorHolderer;
     [SerializeField] private GameObject runeOne;
     [SerializeField] private GameObject runeTwo;
@@ -129,18 +129,20 @@ public class RuneEffect : MonoBehaviour
                     {
                         case 1:
                             animator.SetTrigger("Rune_1_Gather");
+                            watchTowerMultiplier = .4f;
                             break;
                         case 2:
                             animator.SetTrigger("Rune_2_Gather");
+                            watchTowerMultiplier = .3f;
                             break;
                         case 3:
                             animator.SetTrigger("Rune_3_Gather");
+                            watchTowerMultiplier = .2f;
                             break;
                     }
                     
                     runeAnimator1.SetBool("Gathered", true);
                     CollectedRune[0] = 1;
-                    watchTowerMultiplier = .3f;
                 }
 
                 if (currentPickUpRune == "Rune2")
@@ -154,19 +156,21 @@ public class RuneEffect : MonoBehaviour
                     {
                         case 1:
                             animator.SetTrigger("Rune_1_Gather");
+                            watchTowerMultiplier = .4f;
                             break;
                         case 2:
                             animator.SetTrigger("Rune_2_Gather");
+                            watchTowerMultiplier = .3f;
                             break;
                         case 3:
                             animator.SetTrigger("Rune_3_Gather");
+                            watchTowerMultiplier = .2f;
                             break;
                     }
 
                     runeAnimator2.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[1] = 1;
-                    watchTowerMultiplier = .2f;
                 }
 
                 if (currentPickUpRune == "Rune3")
@@ -180,19 +184,21 @@ public class RuneEffect : MonoBehaviour
                     {
                         case 1:
                             animator.SetTrigger("Rune_1_Gather");
+                            watchTowerMultiplier = .4f;
                             break;
                         case 2:
                             animator.SetTrigger("Rune_2_Gather");
+                            watchTowerMultiplier = .3f;
                             break;
                         case 3:
                             animator.SetTrigger("Rune_3_Gather");
+                            watchTowerMultiplier = .2f;
                             break;
                     }
 
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
-                    watchTowerMultiplier = .1f;
                 }
 
             }
@@ -236,12 +242,11 @@ public class RuneEffect : MonoBehaviour
     void TurnOffAnimator()
     {
         animator.enabled = false;
-        Debug.Log("Wyłącznie animnatora");
+        Debug.Log("Animator turned off");
     }
 
     private void OnDestroy()
     {
-        WatchTowerMat.SetVector("_EmissionColor", watchTower_color * .7f);
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
     }
