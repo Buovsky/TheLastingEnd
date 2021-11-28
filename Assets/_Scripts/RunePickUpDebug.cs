@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunePickUp : MonoBehaviour
+public class RunePickUpDebug : MonoBehaviour
 {
     RaycastHit hit;
     int layerMask = 1 << 6;
