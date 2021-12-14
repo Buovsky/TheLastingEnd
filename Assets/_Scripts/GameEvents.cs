@@ -19,6 +19,7 @@ public class GameEvents : MonoBehaviour
 
     public event Action<String> onRaycastHit;
     public event Action onRaycastMiss;
+    public event Action onSaveLoaded;
 
 
     public void AntagonistAppear()
@@ -42,5 +43,9 @@ public class GameEvents : MonoBehaviour
     public void RaycastMiss()
     {
         onRaycastMiss?.Invoke();
+    }
+    public void SaveLoaded()
+    {
+        onSaveLoaded?.Invoke();
     }
 }

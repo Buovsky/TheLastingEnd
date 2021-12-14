@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6257850249943543693}
   - component: {fileID: 1853875483}
   - component: {fileID: 3856572594197832091}
+  - component: {fileID: 7058480721370994362}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 3422218351205783080}
@@ -286,6 +287,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 100000}
   Runes: {fileID: 1853875483}
+--- !u!114 &7058480721370994362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6217dbb26ae7d574ba50e86ae445d305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Runes: {fileID: 1853875483}
+  _playerAnimator: {fileID: 3422218351205783080}
+  _cinematicIntroDirector: {fileID: 1575277995}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -495,8 +511,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -0, y: -0, z: 2.3283062e-10, w: 1}
-  m_LocalPosition: {x: 0.000006332062, y: 0.80000067, z: 0.00000079348683}
+  m_LocalRotation: {x: -0.000013103707, y: 0.000023610886, z: -0.0000027460044, w: 1}
+  m_LocalPosition: {x: 0.00014334638, y: 0.79993725, z: -0.0010084063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316041381}
@@ -531,7 +547,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 59.99774
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

@@ -78,6 +78,9 @@ public class PlayerSaveGame : MonoBehaviour
         if(xPos != 0 && yPos != 0 && zPos != 0)
         {
             _player.transform.position = new Vector3(xPos, yPos, zPos);
+            
+            // Send event to GameplayFlowController to turn off intro cinematic
+            GameEvents.current.SaveLoaded();
         }
     }
 
