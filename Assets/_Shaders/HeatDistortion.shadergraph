@@ -70,7 +70,14 @@
             "m_Id": "de88cb4038c44183b31227d205cdc278"
         }
     ],
-    "m_GroupDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
+        },
+        {
+            "m_Id": "f970a13a4b8c41faa47d8bd91ac6698e"
+        }
+    ],
     "m_StickyNoteDatas": [],
     "m_Edges": [
         {
@@ -325,7 +332,7 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "01abab5141a14c27a142edf7851febf4",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Add",
     "m_DrawState": {
@@ -411,7 +418,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "0ada7180eecb426e88bfbe82360939ba",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Property",
     "m_DrawState": {
@@ -669,7 +676,7 @@
     "m_Type": "UnityEditor.ShaderGraph.LerpNode",
     "m_ObjectId": "199963c8ce3a4160ac83ecfc4b93d2bc",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Lerp",
     "m_DrawState": {
@@ -763,7 +770,7 @@
     "m_Type": "UnityEditor.ShaderGraph.NoiseNode",
     "m_ObjectId": "29f6a95743434c9d9caab440a54f8368",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Simple Noise",
     "m_DrawState": {
@@ -857,7 +864,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
     "m_ObjectId": "32c8a41034f544a5952f16a6f4b831a3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {
@@ -934,16 +941,16 @@
     "m_Type": "UnityEditor.ShaderGraph.TimeNode",
     "m_ObjectId": "37446313effe495c9e8c1d41480c6871",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "f970a13a4b8c41faa47d8bd91ac6698e"
     },
     "m_Name": "Time",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2204.0,
-            "y": 702.9999389648438,
-            "width": 126.00000762939453,
+            "x": -2339.999755859375,
+            "y": 700.9999389648438,
+            "width": 125.99999237060547,
             "height": 173.0
         }
     },
@@ -1047,7 +1054,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "4718b42f755a4ea798086b9fe5fa8a40",
     "m_Id": 0,
-    "m_DisplayName": "HeatDistoration",
+    "m_DisplayName": "HeatDistortion",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1070,6 +1077,17 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "4e932aa266de4708ad62fa27afc58cb6",
+    "m_Title": "Generating and appling noise",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
 }
 
 {
@@ -1313,16 +1331,16 @@
     "m_Type": "UnityEditor.ShaderGraph.TilingAndOffsetNode",
     "m_ObjectId": "944b50933c5e481cb2265a15a38beefb",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "f970a13a4b8c41faa47d8bd91ac6698e"
     },
     "m_Name": "Tiling And Offset",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1671.0,
-            "y": 579.0,
-            "width": 208.00001525878907,
+            "x": -1806.9998779296875,
+            "y": 576.9999389648438,
+            "width": 208.0,
             "height": 326.0
         }
     },
@@ -1386,7 +1404,7 @@
     "m_Type": "UnityEditor.ShaderGraph.ScreenPositionNode",
     "m_ObjectId": "956289967f0548848d9fa61df32b5cdf",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Screen Position",
     "m_DrawState": {
@@ -1466,15 +1484,15 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "a21ee5ebefd64886b9a3229f0cf557c5",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "f970a13a4b8c41faa47d8bd91ac6698e"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2202.0,
-            "y": 624.0000610351563,
+            "x": -2337.999755859375,
+            "y": 622.0,
             "width": 111.0,
             "height": 34.0
         }
@@ -1534,7 +1552,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SceneColorNode",
     "m_ObjectId": "ad07e12d6e8d4575b48ac52413287f93",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Scene Color",
     "m_DrawState": {
@@ -1839,7 +1857,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "de88cb4038c44183b31227d205cdc278",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -1892,17 +1910,17 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "dff9f31110f441eab0d122709072edd2",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "f970a13a4b8c41faa47d8bd91ac6698e"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1983.0,
-            "y": 641.0000610351563,
-            "width": 208.00001525878907,
-            "height": 302.0000305175781
+            "x": -2118.999755859375,
+            "y": 638.9999389648438,
+            "width": 208.0,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -1952,16 +1970,16 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "e8622e01b2f942609265aa77f14009f4",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "4e932aa266de4708ad62fa27afc58cb6"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1540.0,
+            "x": -1490.9998779296875,
             "y": 943.0,
-            "width": 112.99999237060547,
+            "width": 113.0,
             "height": 34.0
         }
     },
@@ -2076,6 +2094,17 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.BaseColor"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "f970a13a4b8c41faa47d8bd91ac6698e",
+    "m_Title": "Transforming the noise",
+    "m_Position": {
+        "x": -2364.999755859375,
+        "y": 517.9999389648438
+    }
 }
 
 {
