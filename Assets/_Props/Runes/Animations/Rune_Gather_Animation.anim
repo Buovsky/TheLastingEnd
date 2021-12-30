@@ -134,7 +134,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -143,7 +143,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 5.0333333
-        value: 0
+        value: 1.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -153,10 +153,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: Opacity
+    attribute: material._OffsetViewZ
     path: Decal
-    classID: 114
-    script: {fileID: 11500000, guid: 1208bbe937c3a54488f1d85a7931055a, type: 3}
+    classID: 23
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -195,10 +195,10 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 366611529
-      attribute: 2353026298
-      script: {fileID: 11500000, guid: 1208bbe937c3a54488f1d85a7931055a, type: 3}
-      typeID: 114
-      customType: 0
+      attribute: 2353595446
+      script: {fileID: 0}
+      typeID: 23
+      customType: 22
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -339,7 +339,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -348,7 +348,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 5.0333333
-        value: 0
+        value: 1.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -358,10 +358,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: Opacity
+    attribute: material._OffsetViewZ
     path: Decal
-    classID: 114
-    script: {fileID: 11500000, guid: 1208bbe937c3a54488f1d85a7931055a, type: 3}
+    classID: 23
+    script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
