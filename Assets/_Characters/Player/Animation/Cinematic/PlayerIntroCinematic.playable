@@ -69,11 +69,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.7000000000000126
+    m_PostExtrapolationTime: 0.9666666666666739
     m_PreExtrapolationTime: 1.1333333333333204
     m_DisplayName: OpeningEyesIntroCinematic
   - m_Version: 1
-    m_Start: 5.166666666666667
+    m_Start: 5.433333333333328
     m_ClipIn: 0
     m_Asset: {fileID: 7411165675485138097}
     m_Duration: 3.3333333333333335
