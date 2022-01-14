@@ -21,6 +21,8 @@ public class GameEvents : MonoBehaviour
     public event Action onRaycastMiss;
     public event Action onSaveLoaded;
 
+    public event Action<bool> onEnviroChange;
+
 
     public void AntagonistAppear()
     {
@@ -48,4 +50,9 @@ public class GameEvents : MonoBehaviour
     {
         onSaveLoaded?.Invoke();
     }
+
+    public void EnviroChanged(bool isGameWasLoaded)
+    {
+        onEnviroChange?.Invoke(isGameWasLoaded);
+    } 
 }
