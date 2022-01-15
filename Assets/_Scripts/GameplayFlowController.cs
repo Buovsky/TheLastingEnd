@@ -13,9 +13,9 @@ public class GameplayFlowController : MonoBehaviour
         GameEvents.current.onSaveLoaded += TurnOffCinematicCompoments;
     }
 
-    void TurnOffCinematicCompoments(bool isGameWasLoaded)
+    void TurnOffCinematicCompoments(bool isSaveWasLoaded)
     {
-        if(!isGameWasLoaded)
+        if(!isSaveWasLoaded)
         {
             _cinematicIntroDirector.enabled = true;
             _playerAnimator.enabled = true;

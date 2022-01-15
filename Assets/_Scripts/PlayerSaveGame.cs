@@ -16,8 +16,8 @@ public class PlayerSaveGame : MonoBehaviour
         LoadRunes();
         if(Runes.runeCount == 0)
         {
-            bool isGameWasLoaded = false;
-            GameEvents.current.SaveLoaded(isGameWasLoaded);
+            bool isSaveWasLoaded = false;
+            GameEvents.current.SaveLoaded(isSaveWasLoaded);
         }
         _charController.enabled = true;
         
@@ -38,6 +38,11 @@ public class PlayerSaveGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F9))
         {
             LoadGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            PlayerPrefs.DeleteAll();
         }
     }
 
@@ -70,7 +75,7 @@ public class PlayerSaveGame : MonoBehaviour
 
     void LoadPosition()
     {
-        bool isGameWasLoaded = true;
+        bool isSaveWasLoaded = true;
         float xPos = PlayerPrefs.GetFloat("XPosition");
         float yPos = PlayerPrefs.GetFloat("YPosition");
         float zPos = PlayerPrefs.GetFloat("ZPosition");
@@ -80,7 +85,7 @@ public class PlayerSaveGame : MonoBehaviour
             _player.transform.position = new Vector3(xPos, yPos, zPos);
             
             // Send event to GameplayFlowController to turn off intro cinematic
-            GameEvents.current.SaveLoaded(isGameWasLoaded);
+            GameEvents.current.SaveLoaded(isSaveWasLoaded);
         }
     }
 
