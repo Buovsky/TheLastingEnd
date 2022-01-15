@@ -86,12 +86,12 @@ public class RuneEffect : MonoBehaviour
 
         if(CollectedRune[2] == 1)
         {
-            runeUIContainer[2].SetActive(true);
+            //runeUIContainer[2].SetActive(true);
             //Mechanic for displaying Save Game Currency on UI
         }
         else
         {
-            runeUIContainer[1].SetActive(false);
+            //runeUIContainer[2].SetActive(false);
         }
 
         if(isRuneOneOnCooldown)
