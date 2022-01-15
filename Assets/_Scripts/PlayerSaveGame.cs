@@ -27,8 +27,12 @@ public class PlayerSaveGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            SavePosition();
-            SaveRunes();
+            if(Runes.saveGameCurrency > 0)
+            {
+                SavePosition();
+                SaveRunes();
+                GameEvents.current.SaveGame();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.F9))

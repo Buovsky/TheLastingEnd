@@ -11,6 +11,9 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private GameObject spawnPoint;
     [SerializeField] private GameObject nightVision;
 
+    [SerializeField] private GameObject _saveOrb;
+
+
     [SerializeField] private Animator animator;
     [SerializeField] private Animator runeAnimator1;
     [SerializeField] private Animator runeAnimator2;
@@ -27,6 +30,7 @@ public class RuneEffect : MonoBehaviour
 
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
+    public int saveGameCurrency = 3;
 
     bool isRuneOneOnCooldown = false;
     bool isRuneTwoOnCooldown = false;
@@ -35,6 +39,7 @@ public class RuneEffect : MonoBehaviour
     {
         GameEvents.current.onRaycastHit += RaycastHitInfo;
         GameEvents.current.onRaycastMiss += RaycastMiss;
+        GameEvents.current.onSaveGame += SpawnSaveOrb;
 
         if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
         {
@@ -52,7 +57,7 @@ public class RuneEffect : MonoBehaviour
                 isRuneOneOnCooldown = false;
                 if (Input.GetKeyUp(KeyCode.E))
                 {
-                    Spawn();
+                    SpawnSphere();
                     nextSphereUseTime = Time.time + cooldownSphereTime;
                     isRuneOneOnCooldown = true;
                 }
@@ -77,6 +82,12 @@ public class RuneEffect : MonoBehaviour
                     isRuneTwoOnCooldown = true;
                 }
             }
+        }
+
+        if(CollectedRune[2] == 1)
+        {
+            runeUIContainer[2].SetActive(true);
+            //Mechanic for displaying Save Game Currency on UI
         }
         else
         {
@@ -168,16 +179,29 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
+                    saveGameCurrency ++;
                 }
             }
         }
     }
 
-    void Spawn()
+    void SpawnSphere()
     {
 
         GameObject locationSphere = Instantiate(_sphere, spawnPoint.transform.position, Quaternion.identity);
         
+    }
+    void SpawnSaveOrb()
+    {
+        if(saveGameCurrency > 0)
+        {
+            GameObject existSaveOrb = GameObject.FindGameObjectWithTag("SaveOrb");
+            Destroy(existSaveOrb);
+
+            GameObject saveGameOrb = Instantiate(_saveOrb, this.gameObject.transform.position, Quaternion.identity);
+            saveGameCurrency --;
+            Debug.Log("Save Currency: " + saveGameCurrency);
+        }
     }
 
     void CooldownUI(Image sprite, float cooldown)
@@ -215,5 +239,6 @@ public class RuneEffect : MonoBehaviour
     {
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
+        GameEvents.current.onSaveGame -= SpawnSaveOrb;
     }
 }

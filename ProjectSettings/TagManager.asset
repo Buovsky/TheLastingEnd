@@ -9,6 +9,7 @@ TagManager:
   - Rune1
   - Rune2
   - Rune3
+  - SaveOrb
   layers:
   - Default
   - TransparentFX
