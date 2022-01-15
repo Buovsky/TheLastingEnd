@@ -13028,7 +13028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1575277995, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1853875483, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: runeOne
@@ -13052,7 +13052,7 @@ PrefabInstance:
       objectReference: {fileID: 1065671189}
     - target: {fileID: 3422218351205783080, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163822022444414983, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Lens.FarClipPlane

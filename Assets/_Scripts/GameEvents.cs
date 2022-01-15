@@ -19,7 +19,7 @@ public class GameEvents : MonoBehaviour
 
     public event Action<String> onRaycastHit;
     public event Action onRaycastMiss;
-    public event Action onSaveLoaded;
+    public event Action<bool> onSaveLoaded;
 
     public event Action<bool> onEnviroChange;
 
@@ -46,9 +46,9 @@ public class GameEvents : MonoBehaviour
     {
         onRaycastMiss?.Invoke();
     }
-    public void SaveLoaded()
+    public void SaveLoaded(bool isGameWasLoaded)
     {
-        onSaveLoaded?.Invoke();
+        onSaveLoaded?.Invoke(isGameWasLoaded);
     }
 
     public void EnviroChanged(bool isGameWasLoaded)
