@@ -34,12 +34,16 @@ public class RuneEffect : MonoBehaviour
 
     bool isRuneOneOnCooldown = false;
     bool isRuneTwoOnCooldown = false;
+
+    public bool isAntagonistAlive = false;
     
     void Start()
     {
         GameEvents.current.onRaycastHit += RaycastHitInfo;
         GameEvents.current.onRaycastMiss += RaycastMiss;
         GameEvents.current.onSaveGame += SpawnSaveOrb;
+        GameEvents.current.onAntagonistAppear += AntagonistAliveTrue;
+        GameEvents.current.onAntagonistDisappear += AntagonistAliveFalse;
 
         if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
         {
@@ -193,7 +197,7 @@ public class RuneEffect : MonoBehaviour
     }
     void SpawnSaveOrb()
     {
-        if(saveGameCurrency > 0)
+        if(saveGameCurrency > 0 && !isAntagonistAlive)
         {
             GameObject existSaveOrb = GameObject.FindGameObjectWithTag("SaveOrb");
             Destroy(existSaveOrb);
@@ -201,6 +205,10 @@ public class RuneEffect : MonoBehaviour
             GameObject saveGameOrb = Instantiate(_saveOrb, this.gameObject.transform.position, Quaternion.identity);
             saveGameCurrency --;
             Debug.Log("Save Currency: " + saveGameCurrency);
+        }
+        else
+        {
+            Debug.Log("Antagonist is alive, or you don't have enough save currency!");
         }
     }
 
@@ -235,10 +243,22 @@ public class RuneEffect : MonoBehaviour
         Debug.Log("Animator turned off");
     }
 
+    void AntagonistAliveTrue()
+    {
+        isAntagonistAlive = true;
+    }
+
+    void AntagonistAliveFalse()
+    {
+        isAntagonistAlive = false;
+    }
+
     private void OnDestroy()
     {
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
         GameEvents.current.onSaveGame -= SpawnSaveOrb;
+        GameEvents.current.onAntagonistAppear += AntagonistAliveTrue;
+        GameEvents.current.onAntagonistDisappear += AntagonistAliveFalse;
     }
 }
