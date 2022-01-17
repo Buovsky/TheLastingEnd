@@ -23,6 +23,8 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private float cooldownVisionTime = 10;
     [SerializeField] private Image[] runeImage;
     [SerializeField] private GameObject[] runeUIContainer;
+    [SerializeField] private Text saveGameCurrencyCounter;
+
 
     public int[] CollectedRune = {0, 0, 0, 0, 0, 0};
 
@@ -47,6 +49,7 @@ public class RuneEffect : MonoBehaviour
 
         if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
         {
+            // check if necessary
             runeUIContainer[0].SetActive(true);
             runeUIContainer[1].SetActive(true);
         }
@@ -90,8 +93,9 @@ public class RuneEffect : MonoBehaviour
 
         if(CollectedRune[2] == 1)
         {
-            //runeUIContainer[2].SetActive(true);
-            //Mechanic for displaying Save Game Currency on UI
+            runeUIContainer[2].SetActive(true);
+            saveGameCurrencyCounter.text = "" + saveGameCurrency;
+
         }
         else
         {
