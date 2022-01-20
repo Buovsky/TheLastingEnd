@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnAntagonist : MonoBehaviour
 {
     [SerializeField] private GameObject _antagonist;
+    [SerializeField] private GameObject _player;
     [SerializeField] private GameObject[] spawnList;
     private int numberOfRunes;
 
@@ -80,6 +81,31 @@ public class SpawnAntagonist : MonoBehaviour
 
     void Spawn()
     {  
-        GameObject enemy = Instantiate(_antagonist, spawnList[Random.Range(0, spawnList.Length)].transform.position, Quaternion.identity);
+        float finalDist = 1000f;
+        float[] tmpDist = new float[spawnList.Length];
+        Vector3 nearestSpawn = new Vector3(0, 0, 0);
+
+        for(int i = 0; i < spawnList.Length; i++)
+        {
+            tmpDist[i] = Vector3.Distance(spawnList[i].transform.position, _player.transform.position);
+            //Debug.Log("Spawn " + i + " distance is " + tmpDist[i]);
+            //Debug.Log("Spawn " + i + " localization is " + spawnList[i].transform.position);
+            
+            if(tmpDist[i] < finalDist)
+            {
+                finalDist = tmpDist[i];
+            }
+        }
+
+        for(int i = 0; i < spawnList.Length; i++)
+        {
+            if(finalDist == tmpDist[i])
+            {
+                nearestSpawn = spawnList[i].transform.position;
+            }
+        }
+
+        //Debug.Log("Nearest spawn localization " + nearestSpawn);
+        GameObject enemy = Instantiate(_antagonist, nearestSpawn, Quaternion.identity);
     }
 }
