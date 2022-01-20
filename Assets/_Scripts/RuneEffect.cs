@@ -23,6 +23,7 @@ public class RuneEffect : MonoBehaviour
     [SerializeField] private float cooldownVisionTime = 10;
     [SerializeField] private Image[] runeImage;
     [SerializeField] private GameObject[] runeUIContainer;
+    [SerializeField] private GameObject[] runeMainUIContainer;
     [SerializeField] private Text saveGameCurrencyCounter;
 
 
@@ -91,15 +92,17 @@ public class RuneEffect : MonoBehaviour
             }
         }
 
-        if(CollectedRune[2] == 1)
+        if(CollectedRune[2] == 1 && !isAntagonistAlive)
         {
             runeUIContainer[2].SetActive(true);
+            runeMainUIContainer[1].SetActive(true);
+            runeMainUIContainer[2].SetActive(true);
             saveGameCurrencyCounter.text = "" + saveGameCurrency;
-
         }
-        else
+        else if(CollectedRune[2] == 1 && isAntagonistAlive)
         {
-            //runeUIContainer[2].SetActive(false);
+            runeMainUIContainer[1].SetActive(false);
+            runeMainUIContainer[2].SetActive(false);
         }
 
         if(isRuneOneOnCooldown)

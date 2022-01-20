@@ -13023,6 +13023,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8116479984607279427, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: runeNumberUI
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9163822022444414983, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Lens.FarClipPlane
       value: 3000

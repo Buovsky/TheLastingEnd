@@ -9,10 +9,6 @@ public class PlayerSaveGame : MonoBehaviour
     private CharacterController _charController;
     [SerializeField] public RuneEffect Runes;
 
-    private float _startTime = 0;
-    private float _holdTime = 3;
-    private bool _isCompleted = false;
-    
     void Start()
     {
         _charController = gameObject.GetComponent(typeof(CharacterController)) as CharacterController;
@@ -32,25 +28,11 @@ public class PlayerSaveGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            _startTime = Time.time;
-        }
-        
-        if (Input.GetKeyUp(KeyCode.F5))
-        {
-            _isCompleted = false;
-        }
-
-        if (Input.GetKey(KeyCode.F5) && !_isCompleted)
-        {
-            if(_startTime + _holdTime <= Time.time)
+            if(Runes.saveGameCurrency > 0 && !Runes.isAntagonistAlive && Runes.CollectedRune[2] == 1)
             {
-                if(Runes.saveGameCurrency > 0 && !Runes.isAntagonistAlive)
-                {
-                    _isCompleted = true;
-                    SavePosition();
-                    SaveRunes();
-                    GameEvents.current.SaveGame();
-                }
+                SavePosition();
+                SaveRunes();
+                GameEvents.current.SaveGame();
             }
         }
 
