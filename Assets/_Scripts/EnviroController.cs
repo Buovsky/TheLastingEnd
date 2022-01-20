@@ -69,23 +69,12 @@ public class EnviroController : MonoBehaviour
 
     void SetRunes()
     {
-        switch(Runes.runeCount)
+        for(int i = 0; i < 3; i++)
         {
-            case 1:
-                Debug.Log("Destroyed FIRST rune!");
-                EnviroRunes[0].SetActive(false);
-                break;
-            case 2:
-                Debug.Log("Destroyed FIRST and SECOND rune!");
-                EnviroRunes[0].SetActive(false);
-                EnviroRunes[1].SetActive(false);
-                break;
-            case 3:
-                Debug.Log("Destroyed FIRST, SECOND and THIRD rune!");
-                EnviroRunes[0].SetActive(false);
-                EnviroRunes[1].SetActive(false);
-                EnviroRunes[2].SetActive(false);
-                break;
+            if(Runes.CollectedRune[i] == 1)
+            {
+                EnviroRunes[i].SetActive(false);
+            }
         }
     }
 
