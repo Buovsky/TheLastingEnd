@@ -33,7 +33,7 @@ public class RuneEffect : MonoBehaviour
 
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
-    public int saveGameCurrency = 3;
+    public int saveGameCurrency = 0;
 
     bool isRuneOneOnCooldown = false;
     bool isRuneTwoOnCooldown = false;
@@ -190,7 +190,7 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
-                    saveGameCurrency ++;
+                    saveGameCurrency = 3;
                 }
             }
         }

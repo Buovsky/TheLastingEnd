@@ -15,6 +15,7 @@ public class PlayerSaveGame : MonoBehaviour
         _charController.enabled = false;
         LoadPosition();
         LoadRunes();
+        LoadSaveCurrency();
         if(Runes.runeCount == 0)
         {
             bool isSaveWasLoaded = false;
@@ -32,6 +33,7 @@ public class PlayerSaveGame : MonoBehaviour
             {
                 SavePosition();
                 SaveRunes();
+                SaveCurrency();
                 GameEvents.current.SaveGame();
             }
         }
@@ -69,6 +71,11 @@ public class PlayerSaveGame : MonoBehaviour
         }
     }
 
+    void SaveCurrency()
+    {
+        PlayerPrefs.SetInt("SaveCurrencyCount", Runes.saveGameCurrency -1);
+    }
+
     void LoadGame()
     {
         SceneManager.LoadScene("MainScene");
@@ -103,6 +110,11 @@ public class PlayerSaveGame : MonoBehaviour
 
         // Enent to apply proper Envrio
         GameEvents.current.EnviroChanged(isGameWasLoaded);
+    }
+
+    void LoadSaveCurrency()
+    {
+        Runes.saveGameCurrency = PlayerPrefs.GetInt("SaveCurrencyCount", -1);
     }
 
 }
