@@ -13,6 +13,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        [SerializeField] private float m_SprintLimitCounter;
+        [SerializeField] private float m_SprintRenewLimit;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -27,6 +29,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioSource m_SprintAudio;
+        [SerializeField] private AudioSource m_DemageBreathAudio;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -39,6 +43,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_OriginalCameraPosition;
         private float m_StepCycle;
         private float m_NextStep;
+        private float m_SprintCounter;
+        private bool m_SprintCooldown = false;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
@@ -120,6 +126,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_Jump = false;
                     m_Jumping = true;
                 }
+                Debug.Log(m_SprintCounter);
             }
             else
             {
@@ -212,12 +219,56 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            if(m_SprintCounter <= m_SprintLimitCounter && !m_SprintCooldown)
+            {
+                m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            }
+            else
+            {
+                m_IsWalking = true;
+                m_SprintCooldown = true;
+            }
+            
+            if(!m_IsWalking)
+            {
+                m_SprintCounter++;
+                if(m_SprintCounter > m_SprintLimitCounter * .7)
+                {
+                    m_SprintAudio.volume += .0045f;
+                }
+            }
+            else if(m_SprintCounter > 0)
+            {
+                m_SprintCounter -= .3f;
+                
+                if(m_SprintCounter < m_SprintLimitCounter * .7 && m_SprintAudio.volume >= .3f)
+                {
+                    m_SprintAudio.volume -= .0015f;
+                }
+
+                if(m_SprintCounter <= m_SprintRenewLimit)
+                {
+                    m_SprintCooldown = false;
+                }
+            }
+            //Debug.Log("SPRINT " + (m_SprintCounter * .7));
+            if(m_SprintCounter > m_SprintLimitCounter * .7 && !m_DemageBreathAudio.isPlaying)
+            {
+                m_SprintAudio.enabled = true;
+            }
+            else if(m_SprintCounter <= m_SprintRenewLimit)
+            {
+                m_SprintAudio.enabled = false;
+            }
+
+            if(m_DemageBreathAudio.isPlaying)
+            {
+                m_SprintAudio.enabled = false;
+            }
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);
-
             // normalize input if it exceeds 1 in combined length:
             if (m_Input.sqrMagnitude > 1)
             {
