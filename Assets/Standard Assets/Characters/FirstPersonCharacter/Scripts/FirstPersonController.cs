@@ -126,7 +126,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_Jump = false;
                     m_Jumping = true;
                 }
-                Debug.Log(m_SprintCounter);
+                //Debug.Log(m_SprintCounter);
             }
             else
             {
@@ -234,7 +234,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_SprintCounter++;
                 if(m_SprintCounter > m_SprintLimitCounter * .7)
                 {
-                    m_SprintAudio.volume += .0045f;
+                    m_SprintAudio.volume += .011f;
                 }
             }
             else if(m_SprintCounter > 0)
@@ -243,7 +243,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 
                 if(m_SprintCounter < m_SprintLimitCounter * .7 && m_SprintAudio.volume >= .3f)
                 {
-                    m_SprintAudio.volume -= .0015f;
+                    m_SprintAudio.volume -= .004f;
                 }
 
                 if(m_SprintCounter <= m_SprintRenewLimit)
