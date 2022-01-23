@@ -13147,6 +13147,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2896912585334173997, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: _caveTrigger
+      value: 
+      objectReference: {fileID: 202732948}
+    - target: {fileID: 2896912585334173997, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: _shrineTrigger
+      value: 
+      objectReference: {fileID: 114795333}
     - target: {fileID: 3422218351205783080, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
       value: 0

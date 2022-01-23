@@ -10,7 +10,7 @@ Material:
   m_Name: Clouds
   m_Shader: {fileID: -6465566751694194690, guid: 4ee552924c2356542a99847498d797ca, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -41,6 +41,6 @@ Material:
     - Vector1_f28b30a6ea4b4324bfd5a752e5bc1221: 359
     m_Colors:
     - Color_2b5e8271b1c74de9bf113f406712bda0: {r: 376.16235, g: 390.57593, b: 627.92456, a: 0.3921569}
-    - Vector2_73caf70d5ee84e098995e64698d39192: {r: 0.002, g: 0.002, b: 0, a: 0}
+    - Vector2_73caf70d5ee84e098995e64698d39192: {r: 0.002, g: 0.001, b: 0, a: 0}
     - Vector2_d06438c5e2004fb3a9ddb5bd14bb8872: {r: 0.02, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []

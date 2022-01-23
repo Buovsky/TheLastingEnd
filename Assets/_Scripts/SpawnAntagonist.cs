@@ -22,7 +22,8 @@ public class SpawnAntagonist : MonoBehaviour
     {
         CheckCountOfRunes();
         InvokeRepeating("CheckCountOfRunes", .1f, 1);
-        
+        GameEvents.current.onPlayerEnterZone += PlayerInZone;
+        audioData = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -57,20 +58,17 @@ public class SpawnAntagonist : MonoBehaviour
                 Debug.Log("Antagonist will appear");
                 Invoke("Spawn", firstSpawn);
                 antagonistLives = true; // send event to spawn antagonist
-                audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
                 break;
             case 2:
                 Invoke("Spawn", secondSpawn);
                 antagonistLives = true;
-                audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
                 
                 break;
             case 3:
                 Invoke("Spawn", thirdSpawn);
                 antagonistLives = true;
-                audioData = GetComponent<AudioSource>();
                 audioData.Play(0);
                 break;
             default:
@@ -107,5 +105,22 @@ public class SpawnAntagonist : MonoBehaviour
 
         //Debug.Log("Nearest spawn localization " + nearestSpawn);
         GameObject enemy = Instantiate(_antagonist, nearestSpawn, Quaternion.identity);
+    }
+
+    void PlayerInZone(bool isPlayerInZone)
+    {
+        if(isPlayerInZone)
+        {
+            audioData.enabled = false;
+        }
+        else
+        {
+            audioData.enabled = true;
+        }
+    }
+
+    private void OnDestroy() 
+    {
+        GameEvents.current.onPlayerEnterZone -= PlayerInZone;
     }
 }

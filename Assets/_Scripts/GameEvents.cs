@@ -23,6 +23,8 @@ public class GameEvents : MonoBehaviour
 
     public event Action<bool> onEnviroChange;
     public event Action onSaveGame;
+    public event Action<bool> onPlayerEnterZone;
+
 
 
     public void AntagonistAppear()
@@ -56,9 +58,12 @@ public class GameEvents : MonoBehaviour
     {
         onEnviroChange?.Invoke(isGameWasLoaded);
     } 
-
     public void SaveGame()
     {
         onSaveGame?.Invoke();
     }
+    public void PlayerEnterZone(bool isPlayerInZone)
+    {
+        onPlayerEnterZone?.Invoke(isPlayerInZone);
+    } 
 }

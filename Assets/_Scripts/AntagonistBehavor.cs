@@ -12,11 +12,18 @@ public class AntagonistBehavor : MonoBehaviour
     [SerializeField] private float firstDie = 40;
     [SerializeField] private float secondDie = 60;
     [SerializeField] private float thirdDie = 80;
+    [SerializeField] GameObject turnOffOnChaise1;
+    [SerializeField] GameObject turnOffOnChaise2;
+    [SerializeField] GameObject turnOffOnChaise3;
 
     public bool antagonistLive = false;
-
+    private bool stopChase = false;
     Animator animator;
 
+    private void Start() 
+    {
+        //GameEvents.current.onPlayerEnterZone += PlayerInZone;        
+    }
     void Awake()
     {
         GameEvents.current.AntagonistAppear();
@@ -29,11 +36,23 @@ public class AntagonistBehavor : MonoBehaviour
         antagonistLive = true;
         Die();
 
+        GameEvents.current.onPlayerEnterZone += PlayerInZone;
+
+        //SKIP PLAYING AUDIO IF PLAYER IN RUNE ZONE
+
     }
     void FixedUpdate()
     {
-        agent.SetDestination(playerPos.transform.position);
-        //Debug.Log("Żyje" + antagonistLive);
+        if(!stopChase)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(playerPos.transform.position);
+        }
+        else
+        {
+            agent.isStopped = true;
+        }
+        
     }
 
     void CheckCountOfRunes()
@@ -83,6 +102,30 @@ public class AntagonistBehavor : MonoBehaviour
     {
         GameEvents.current.AntagonistDisappear();
         animator.SetBool("Disappear", true);
+    }
+
+    void PlayerInZone(bool isPlayerInZone)
+    {
+        Debug.Log("PlayerInZone");
+        if(isPlayerInZone)
+        {
+            stopChase = true;
+            turnOffOnChaise1.SetActive(false);
+            turnOffOnChaise2.SetActive(false);
+            turnOffOnChaise3.SetActive(false);
+        }
+        else if(!isPlayerInZone)
+        {
+            stopChase = false;
+            turnOffOnChaise1.SetActive(true);
+            turnOffOnChaise2.SetActive(true);
+            turnOffOnChaise3.SetActive(true);
+        }
+    }
+
+    private void OnDestroy() 
+    {
+        GameEvents.current.onPlayerEnterZone -= PlayerInZone;        
     }
 
 }
