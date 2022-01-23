@@ -30,13 +30,17 @@ public class PointerScript : MonoBehaviour
             runeCollectedRune[i] = runeEffect.CollectedRune[i];
         }
 
-        if(runeCollectedRune[0] == 1 && runeCollectedRune[1] == 0|| runeCollectedRune[2] == 1)
+        if(runeCollectedRune[0] == 1 && runeCollectedRune[1] == 0 && runeCollectedRune[2] == 1)
         {
             agent.SetDestination(runeZone[0].transform.position);
         }
-        else if(runeCollectedRune[1] == 1)
+        else if(runeCollectedRune[1] == 1 && runeCollectedRune[2] == 0)
         {
             agent.SetDestination(runeZone[1].transform.position);
+        }
+        else if(runeCollectedRune[0] == 1 && runeCollectedRune[1] == 1 && runeCollectedRune[2] == 1)
+        {
+            agent.SetDestination(runeZone[2].transform.position);
         }
     }
 

@@ -389,6 +389,7 @@ MonoBehaviour:
   runeZone:
   - {fileID: 8825597492185207142, guid: 4f350ac714fd52e41904c84b8f23557a, type: 3}
   - {fileID: 3631619094751659306, guid: 85d37796307364b4eb9b95f1f3eba2eb, type: 3}
+  - {fileID: 8480365286961549389, guid: 642206081532284429953880abd6e96a, type: 3}
 --- !u!95 &8138100976403064180
 Animator:
   serializedVersion: 3

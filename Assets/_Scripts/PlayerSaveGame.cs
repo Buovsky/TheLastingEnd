@@ -34,7 +34,7 @@ public class PlayerSaveGame : MonoBehaviour
         {
             if(Runes.saveGameCurrency > 0 && !Runes.isAntagonistAlive && Runes.CollectedRune[2] == 1
             ||Runes.saveGameCurrency > 0 && Runes.CollectedRune[2] == 1 && _isPlayerinZone)
-            {// || player in runeZone[1]
+            {
                 SavePosition();
                 SaveRunes();
                 SaveCurrency();

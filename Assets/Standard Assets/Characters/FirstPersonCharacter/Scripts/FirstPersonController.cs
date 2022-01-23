@@ -234,14 +234,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_SprintCounter++;
                 if(m_SprintCounter > m_SprintLimitCounter * .7)
                 {
-                    m_SprintAudio.volume += .011f;
+                    m_SprintAudio.volume += .0115f;
                 }
             }
             else if(m_SprintCounter > 0)
             {
                 m_SprintCounter -= .3f;
                 
-                if(m_SprintCounter < m_SprintLimitCounter * .7 && m_SprintAudio.volume >= .3f)
+                if(m_SprintCounter < m_SprintLimitCounter * .7 && m_SprintAudio.volume >= .2f)
                 {
                     m_SprintAudio.volume -= .004f;
                 }
