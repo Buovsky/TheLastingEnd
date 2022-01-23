@@ -12,9 +12,6 @@ public class EnviroController : MonoBehaviour
     [SerializeField] private Color watchTower_color;
 
     public GameObject[] EnviroRunes;
-
-
-    private float watchTowerMultiplier = .5f;
     public Vector4 WatchtowerColorHolderer;
     
     void Start()
