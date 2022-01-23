@@ -9,6 +9,8 @@ public class PlayerSaveGame : MonoBehaviour
     private CharacterController _charController;
     [SerializeField] public RuneEffect Runes;
 
+    private bool _isPlayerinZone;
+
     void Start()
     {
         _charController = gameObject.GetComponent(typeof(CharacterController)) as CharacterController;
@@ -22,6 +24,7 @@ public class PlayerSaveGame : MonoBehaviour
             GameEvents.current.SaveLoaded(isSaveWasLoaded);
         }
         _charController.enabled = true;
+        GameEvents.current.onPlayerEnterZone += PlayerInZone;
         
     }
 
@@ -29,8 +32,9 @@ public class PlayerSaveGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            if(Runes.saveGameCurrency > 0 && !Runes.isAntagonistAlive && Runes.CollectedRune[2] == 1)
-            {
+            if(Runes.saveGameCurrency > 0 && !Runes.isAntagonistAlive && Runes.CollectedRune[2] == 1
+            ||Runes.saveGameCurrency > 0 && Runes.CollectedRune[2] == 1 && _isPlayerinZone)
+            {// || player in runeZone[1]
                 SavePosition();
                 SaveRunes();
                 SaveCurrency();
@@ -115,6 +119,22 @@ public class PlayerSaveGame : MonoBehaviour
     void LoadSaveCurrency()
     {
         Runes.saveGameCurrency = PlayerPrefs.GetInt("SaveCurrencyCount", -1);
+    }
+    void PlayerInZone(bool isPlayerInZone)
+    {
+        if(isPlayerInZone)
+        {
+            _isPlayerinZone = true;
+        }
+        else
+        {
+            _isPlayerinZone = false;
+        }
+    }
+
+    private void OnDestroy() 
+    {
+        GameEvents.current.onPlayerEnterZone -= PlayerInZone;
     }
 
 }

@@ -37,7 +37,7 @@ public class RuneEffect : MonoBehaviour
 
     bool isRuneOneOnCooldown = false;
     bool isRuneTwoOnCooldown = false;
-
+    bool _isPlayerinZone;
     public bool isAntagonistAlive = false;
     
     void Start()
@@ -47,6 +47,9 @@ public class RuneEffect : MonoBehaviour
         GameEvents.current.onSaveGame += SpawnSaveOrb;
         GameEvents.current.onAntagonistAppear += AntagonistAliveTrue;
         GameEvents.current.onAntagonistDisappear += AntagonistAliveFalse;
+        GameEvents.current.onPlayerEnterZone += PlayerInZone;
+        // Remember to unsubscribe this ^^^ event when Player passes difficulity wall
+        // To do: Make some system to let/block Player abilities in zones!
 
         if(CollectedRune[0] == 1 && CollectedRune[1] == 1)
         {
@@ -92,7 +95,8 @@ public class RuneEffect : MonoBehaviour
             }
         }
 
-        if(CollectedRune[2] == 1 && !isAntagonistAlive)
+        if(CollectedRune[2] == 1 && !isAntagonistAlive || CollectedRune[2] == 1 && _isPlayerinZone)
+        // || player in runeZone[1]
         {
             runeUIContainer[2].SetActive(true);
             runeMainUIContainer[1].SetActive(true);
@@ -101,6 +105,7 @@ public class RuneEffect : MonoBehaviour
         }
         else if(CollectedRune[2] == 1 && isAntagonistAlive)
         {
+            runeUIContainer[2].SetActive(true);
             runeMainUIContainer[1].SetActive(false);
             runeMainUIContainer[2].SetActive(false);
         }
@@ -204,7 +209,7 @@ public class RuneEffect : MonoBehaviour
     }
     void SpawnSaveOrb()
     {
-        if(saveGameCurrency > 0 && !isAntagonistAlive)
+        if(saveGameCurrency > 0 && !isAntagonistAlive || CollectedRune[2] == 1 && _isPlayerinZone)
         {
             GameObject existSaveOrb = GameObject.FindGameObjectWithTag("SaveOrb");
             Destroy(existSaveOrb);
@@ -260,12 +265,26 @@ public class RuneEffect : MonoBehaviour
         isAntagonistAlive = false;
     }
 
+    void PlayerInZone(bool isPlayerInZone)
+    {
+        if(isPlayerInZone)
+        {
+            _isPlayerinZone = true;
+        }
+        else
+        {
+            _isPlayerinZone = false;
+        }
+    }
+
     private void OnDestroy()
     {
         GameEvents.current.onRaycastHit -= RaycastHitInfo;
         GameEvents.current.onRaycastMiss -= RaycastMiss;
         GameEvents.current.onSaveGame -= SpawnSaveOrb;
-        GameEvents.current.onAntagonistAppear += AntagonistAliveTrue;
-        GameEvents.current.onAntagonistDisappear += AntagonistAliveFalse;
+        GameEvents.current.onAntagonistAppear -= AntagonistAliveTrue;
+        GameEvents.current.onAntagonistDisappear -= AntagonistAliveFalse;
+        GameEvents.current.onPlayerEnterZone -= PlayerInZone;
+
     }
 }
