@@ -114,7 +114,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MoveDir.x = desiredMove.x*speed;
             m_MoveDir.z = desiredMove.z*speed;
 
-
             if (m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = -m_StickToGroundForce;
@@ -229,7 +228,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_SprintCooldown = true;
             }
             
-            if(!m_IsWalking)
+            if(!m_IsWalking && m_MoveDir.x != 0)
             {
                 m_SprintCounter++;
                 if(m_SprintCounter > m_SprintLimitCounter * .7)
