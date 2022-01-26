@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
 
 public class PlayerZoneEnter : MonoBehaviour
 {
@@ -11,6 +14,16 @@ public class PlayerZoneEnter : MonoBehaviour
     [SerializeField] private Collider _audioTrigger;
     [SerializeField] private GameObject _audioSourceHandler;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _passThroughAudioSource;
+
+    // end demo scenario
+    [SerializeField] private RuneEffect _runes;
+    [SerializeField] private GameObject _blackScreen;
+    [SerializeField] private GameObject _logo;
+    [SerializeField] private GameObject _runeUIContainer;
+    [SerializeField] private GameObject _watchtowerAudioSource;
+    [SerializeField] private AudioMixer _masterAudioMixer;
+
 
     private bool _isPlayerInZone = false;
     private bool _isPlayerInAudioZone;
@@ -23,7 +36,7 @@ public class PlayerZoneEnter : MonoBehaviour
         }
         else if(!_isPlayerInAudioZone && _audioSource.volume >= .1f)
         {
-            _audioSource.volume -= .003f;
+            _audioSource.volume -= .002f;
         }
         else if(_audioSource.volume <= .1f)
         {
@@ -67,6 +80,19 @@ public class PlayerZoneEnter : MonoBehaviour
             _isPlayerInAudioZone = true;
             _audioSource.Play(0);
         }
+        else if(other == _wallTrigger)
+        {
+            // save currency = 0
+            _runes.saveGameCurrency = 0;
+            //play sound
+            _passThroughAudioSource.Play(0);
+            //black screen/invoke 2s logo and watchtower sound
+            _blackScreen.SetActive(true);
+            _runeUIContainer.SetActive(false);
+            _masterAudioMixer.FindSnapshot("EndDemoSnapshot").TransitionTo(1f);
+            Invoke("LogoAppear", 4f);
+            Invoke("LoadMenuScene", 12f);
+        }
     }
 
 
@@ -89,5 +115,16 @@ public class PlayerZoneEnter : MonoBehaviour
             Debug.Log("EXITED END GAME WALL TRIGGER");
             _isPlayerInAudioZone = false;
         }
+    }
+
+    void LogoAppear()
+    {
+        _logo.SetActive(true);
+        _watchtowerAudioSource.SetActive(true);
+    }
+
+    void LoadMenuScene()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
