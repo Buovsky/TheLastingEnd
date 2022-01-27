@@ -24,6 +24,7 @@ public class GameEvents : MonoBehaviour
     public event Action<bool> onEnviroChange;
     public event Action onSaveGame;
     public event Action<bool> onPlayerEnterZone;
+    public event Action<int> onRuneScenarioStart;
 
 
 
@@ -65,5 +66,9 @@ public class GameEvents : MonoBehaviour
     public void PlayerEnterZone(bool isPlayerInZone)
     {
         onPlayerEnterZone?.Invoke(isPlayerInZone);
+    } 
+    public void RuneScenarioStart(int runeIndex)
+    {
+        onRuneScenarioStart?.Invoke(runeIndex);
     } 
 }

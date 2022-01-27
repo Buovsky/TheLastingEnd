@@ -33,6 +33,7 @@ public class RuneEffect : MonoBehaviour
 
     private float nextSphereUseTime = 0;
     private float nextVisionUseTime = 0;
+    public int[] SpellCounter = {0, 0, 0};
     public int saveGameCurrency = 0;
 
     bool isRuneOneOnCooldown = false;
@@ -87,6 +88,7 @@ public class RuneEffect : MonoBehaviour
                 isRuneTwoOnCooldown = false;
                 if (Input.GetKeyUp(KeyCode.R))
                 {
+                    SpellCounter[1]++;
                     nightVision.SetActive(true);
                     Invoke("TurnOff", 10);
                     nextVisionUseTime = Time.time + cooldownVisionTime;
@@ -173,6 +175,8 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator2.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[1] = 1;
+                    int runeIndex = 1;
+                    GameEvents.current.RuneScenarioStart(runeIndex);
                 }
 
                 if (currentPickUpRune == "Rune3")

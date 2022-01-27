@@ -16,6 +16,8 @@ public class PlayerZoneEnter : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _passThroughAudioSource;
 
+    [Space] 
+    [Header("Difficulity Wall")]
     // end demo scenario
     [SerializeField] private RuneEffect _runes;
     [SerializeField] private GameObject _blackScreen;
