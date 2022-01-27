@@ -32,8 +32,8 @@ public class RuneZonesScenario : MonoBehaviour
                 _caveCharVisible = true;
                 if(_runeEffect.SpellCounter[1] > _spellCounterHolder)
                 {
-                    _caveEntranceCharacter.SetActive(false);
                     _uiTutorial.enabled = false;
+                    _caveEntranceCharacter.SetActive(false);
                     Invoke("ShowSecondOutsideCharacters", 11f);
                     _caveCharVisible = false;
                 }

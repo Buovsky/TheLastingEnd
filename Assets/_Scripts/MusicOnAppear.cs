@@ -8,8 +8,11 @@ public class MusicOnAppear : MonoBehaviour
     [SerializeField] private GameObject _secondCharactersContainer;
     
     private void OnBecameVisible() {
-        _appearMusic.Play(0);
-        Invoke("DeactivateSecondCharacters", 15f);
+        if(!_appearMusic.isPlaying)
+        {
+            _appearMusic.Play(0);
+        }
+        Invoke("DeactivateSecondCharacters", 14.5f);
     }
 
     void DeactivateSecondCharacters()
