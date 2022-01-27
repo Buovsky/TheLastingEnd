@@ -14,9 +14,14 @@ public class RuneZonesScenario : MonoBehaviour
     [SerializeField] private AudioSource _tensionMusic;
     [SerializeField] private AudioSource _appearMusic;
     [SerializeField] private Text _uiTutorial;
+
+    [Header("Second Scenario")]
+
+
     private bool _caveCharVisible = false;
     private int _spellCounterHolder = 0;
     private int _runeIndexHolder;
+    
     void Start()
     {
         GameEvents.current.onRuneScenarioStart += ActivateScenario;
@@ -67,6 +72,10 @@ public class RuneZonesScenario : MonoBehaviour
         switch(runeIndex)
         {
             case 1:
+                _runeIndexHolder = runeIndex;
+                _caveEntranceCharacter.SetActive(true);
+                break;
+            case 2:
                 _runeIndexHolder = runeIndex;
                 _caveEntranceCharacter.SetActive(true);
                 break;

@@ -200,6 +200,8 @@ public class RuneEffect : MonoBehaviour
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
                     saveGameCurrency = 3;
+                    int runeIndex = 2;
+                    GameEvents.current.RuneScenarioStart(runeIndex);
                 }
             }
         }
