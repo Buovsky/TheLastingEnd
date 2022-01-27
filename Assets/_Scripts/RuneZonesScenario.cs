@@ -16,6 +16,14 @@ public class RuneZonesScenario : MonoBehaviour
     [SerializeField] private Text _uiTutorial;
 
     [Header("Second Scenario")]
+    [SerializeField] private GameObject _wallCharacters;
+    [SerializeField] private GameObject _runningCharacter;
+    [SerializeField] private Renderer _rightRenderer;
+    [SerializeField] private Renderer _leftRenderer;
+    [SerializeField] private AudioSource _tensionMusicSecond;
+    [SerializeField] private AudioSource _appearMusicSecond;
+
+
 
 
     private bool _caveCharVisible = false;
@@ -30,41 +38,63 @@ public class RuneZonesScenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_caveEntranceCharacter.activeSelf)
+        if(_runeIndexHolder == 1)
         {
-            if(_caveEntranceRenderer.isVisible)
+            if(_caveEntranceCharacter.activeSelf)
             {
-                _caveCharVisible = true;
-                if(_runeEffect.SpellCounter[1] > _spellCounterHolder)
+                if(_caveEntranceRenderer.isVisible)
                 {
-                    _uiTutorial.enabled = false;
-                    _caveEntranceCharacter.SetActive(false);
-                    Invoke("ShowSecondOutsideCharacters", 11f);
-                    _caveCharVisible = false;
-                }
+                    _caveCharVisible = true;
+                    if(_runeEffect.SpellCounter[1] > _spellCounterHolder)
+                    {
+                        _uiTutorial.enabled = false;
+                        _caveEntranceCharacter.SetActive(false);
+                        Invoke("ShowCharacters", 11f);
+                        _caveCharVisible = false;
+                    }
 
-                if(!_tensionMusic.isPlaying)
-                {
-                    _spellCounterHolder = _runeEffect.SpellCounter[1];
-                    Invoke("ShowUITutorial", 6f);
-                    _tensionMusic.time = 3.5f;
-                    _appearMusic.Play(0);
-                    _tensionMusic.Play(0);
-                }
+                    if(!_tensionMusic.isPlaying)
+                    {
+                        _spellCounterHolder = _runeEffect.SpellCounter[1];
+                        Invoke("ShowUITutorial", 6f);
+                        _tensionMusic.time = 3.5f;
+                        _appearMusic.Play(0);
+                        _tensionMusic.Play(0);
+                    }
 
-                if(_caveCharVisible)
+                    if(_caveCharVisible)
+                    {
+                        _lifeManagment.playerHealth -= .13f;
+                    }
+                }
+            }
+            else
+            {
+                if(!_caveCharVisible && _runeEffect.SpellCounter[1] > _spellCounterHolder)
                 {
-                    _lifeManagment.playerHealth -= .13f;
+                    _tensionMusic.volume -= .01f;
                 }
             }
         }
-        else
+        else if(_runeIndexHolder == 2)
         {
-            if(!_caveCharVisible && _runeEffect.SpellCounter[1] > _spellCounterHolder)
+            if(_rightRenderer.isVisible || _leftRenderer.isVisible)
             {
-                _tensionMusic.volume -= .01f;
+                if(!_tensionMusicSecond.isPlaying)
+                {
+                    Invoke("ShowUITutorial", 14f);
+                    Invoke("ShowCharacters", 8f);
+                    _appearMusicSecond.Play(0);
+                    _tensionMusicSecond.Play(0);
+                }
+            }
+
+            if(_runeEffect.SpellCounter[2] > _spellCounterHolder)
+            {
+                _uiTutorial.enabled = false;
             }
         }
+
     }
 
     void ActivateScenario(int runeIndex)
@@ -77,22 +107,39 @@ public class RuneZonesScenario : MonoBehaviour
                 break;
             case 2:
                 _runeIndexHolder = runeIndex;
-                _caveEntranceCharacter.SetActive(true);
+                _spellCounterHolder = _runeEffect.SpellCounter[2];
+                _wallCharacters.SetActive(true);
                 break;
         }
     }
 
     void ShowUITutorial()
     {
-       
-        _uiTutorial.text = "R";
+       switch(_runeIndexHolder)
+        {
+            case 1:
+                _uiTutorial.text = "R";
+                break;
+            case 2:
+                _uiTutorial.text = "F5";
+                break;
+        }
         _uiTutorial.enabled = true;
-         Debug.Log("Tutorial showed");
+        Debug.Log("Tutorial showed");
     }
 
-    void ShowSecondOutsideCharacters()
+    void ShowCharacters()
     {
-        _caveOutsideCharacters.SetActive(true);
+        switch(_runeIndexHolder)
+        {
+            case 1:
+                _caveOutsideCharacters.SetActive(true);
+                break;
+            case 2:
+                _runningCharacter.SetActive(true);
+                break;
+        }
+
     }
 
     private void OnDestroy() 

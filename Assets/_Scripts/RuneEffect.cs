@@ -222,6 +222,7 @@ public class RuneEffect : MonoBehaviour
 
             GameObject saveGameOrb = Instantiate(_saveOrb, this.gameObject.transform.position, Quaternion.identity);
             saveGameCurrency --;
+            SpellCounter[2]++;
             Debug.Log("Save Currency: " + saveGameCurrency);
         }
         else
