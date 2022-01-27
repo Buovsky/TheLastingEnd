@@ -11,6 +11,7 @@ public class RuneZonesScenario : MonoBehaviour
     [SerializeField] private GameObject _caveEntranceCharacter;
     [SerializeField] private Renderer _caveEntranceRenderer;
     [SerializeField] private AudioSource _tensionMusic;
+    [SerializeField] private AudioSource _appearMusic;
     [SerializeField] private Text _uiTutorial;
     private bool _caveCharVisible = false;
     private int _spellCounterHolder = 0;
@@ -37,14 +38,15 @@ public class RuneZonesScenario : MonoBehaviour
                 if(!_tensionMusic.isPlaying)
                 {
                     _spellCounterHolder = _runeEffect.SpellCounter[1];
-                    Invoke("ShowUITutorial", 1f);
-                    _tensionMusic.time = 4.5f;
+                    Invoke("ShowUITutorial", 4f);
+                    _tensionMusic.time = 3.5f;
+                    _appearMusic.Play(0);
                     _tensionMusic.Play(0);
                 }
 
                 if(_caveCharVisible)
                 {
-                    _lifeManagment.playerHealth -= .15f;
+                    _lifeManagment.playerHealth -= .1f;
                 }
             }
         }
