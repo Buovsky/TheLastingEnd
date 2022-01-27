@@ -10,11 +10,13 @@ public class RuneZonesScenario : MonoBehaviour
     public RuneEffect _runeEffect;
     [SerializeField] private GameObject _caveEntranceCharacter;
     [SerializeField] private Renderer _caveEntranceRenderer;
+    [SerializeField] private GameObject _caveOutsideCharacters;
     [SerializeField] private AudioSource _tensionMusic;
     [SerializeField] private AudioSource _appearMusic;
     [SerializeField] private Text _uiTutorial;
     private bool _caveCharVisible = false;
     private int _spellCounterHolder = 0;
+    private int _runeIndexHolder;
     void Start()
     {
         GameEvents.current.onRuneScenarioStart += ActivateScenario;
@@ -32,13 +34,14 @@ public class RuneZonesScenario : MonoBehaviour
                 {
                     _caveEntranceCharacter.SetActive(false);
                     _uiTutorial.enabled = false;
+                    Invoke("ShowSecondOutsideCharacters", 11f);
                     _caveCharVisible = false;
                 }
 
                 if(!_tensionMusic.isPlaying)
                 {
                     _spellCounterHolder = _runeEffect.SpellCounter[1];
-                    Invoke("ShowUITutorial", 4f);
+                    Invoke("ShowUITutorial", 6f);
                     _tensionMusic.time = 3.5f;
                     _appearMusic.Play(0);
                     _tensionMusic.Play(0);
@@ -46,7 +49,7 @@ public class RuneZonesScenario : MonoBehaviour
 
                 if(_caveCharVisible)
                 {
-                    _lifeManagment.playerHealth -= .1f;
+                    _lifeManagment.playerHealth -= .13f;
                 }
             }
         }
@@ -64,6 +67,7 @@ public class RuneZonesScenario : MonoBehaviour
         switch(runeIndex)
         {
             case 1:
+                _runeIndexHolder = runeIndex;
                 _caveEntranceCharacter.SetActive(true);
                 break;
         }
@@ -75,6 +79,11 @@ public class RuneZonesScenario : MonoBehaviour
         _uiTutorial.text = "R";
         _uiTutorial.enabled = true;
          Debug.Log("Tutorial showed");
+    }
+
+    void ShowSecondOutsideCharacters()
+    {
+        _caveOutsideCharacters.SetActive(true);
     }
 
     private void OnDestroy() 
