@@ -42,6 +42,10 @@ public class PointerScript : MonoBehaviour
         {
             agent.SetDestination(runeZone[2].transform.position);
         }
+         else if(runeCollectedRune[0] == 1 && runeCollectedRune[1] == 0 && runeCollectedRune[2] == 0)
+         {
+            agent.SetDestination(runeZone[0].transform.position);
+         }
     }
 
     // Update is called once per frame
