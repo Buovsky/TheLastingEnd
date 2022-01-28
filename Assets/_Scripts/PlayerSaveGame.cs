@@ -9,6 +9,8 @@ public class PlayerSaveGame : MonoBehaviour
     private CharacterController _charController;
     [SerializeField] public RuneEffect Runes;
 
+    private float _xPos;
+
     private bool _isPlayerinZone;
 
     void Start()
@@ -18,13 +20,19 @@ public class PlayerSaveGame : MonoBehaviour
         LoadPosition();
         LoadRunes();
         LoadSaveCurrency();
-        if(Runes.runeCount == 0)
+        if(_xPos == 0)
         {
             bool isSaveWasLoaded = false;
             GameEvents.current.SaveLoaded(isSaveWasLoaded);
         }
+        else if(_xPos != 0)
+        {
+            bool isSaveWasLoaded = true;
+            GameEvents.current.SaveLoaded(isSaveWasLoaded);
+        }
         _charController.enabled = true;
         GameEvents.current.onPlayerEnterZone += PlayerInZone;
+        GameEvents.current.onSaveGame += SavePosition;
         
     }
 
@@ -92,6 +100,8 @@ public class PlayerSaveGame : MonoBehaviour
         float yPos = PlayerPrefs.GetFloat("YPosition");
         float zPos = PlayerPrefs.GetFloat("ZPosition");
 
+        _xPos = xPos;
+
         if(xPos != 0 && yPos != 0 && zPos != 0)
         {
             _player.transform.position = new Vector3(xPos, yPos, zPos);
@@ -135,6 +145,7 @@ public class PlayerSaveGame : MonoBehaviour
     private void OnDestroy() 
     {
         GameEvents.current.onPlayerEnterZone -= PlayerInZone;
+        GameEvents.current.onSaveGame -= SavePosition;
     }
 
 }

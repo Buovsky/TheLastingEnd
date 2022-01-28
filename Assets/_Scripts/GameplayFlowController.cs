@@ -19,7 +19,13 @@ public class GameplayFlowController : MonoBehaviour
         {
             _cinematicIntroDirector.enabled = true;
             _playerAnimator.enabled = true;
+            Invoke("SavePositionAfterIntro", 17f);
         }
+    }
+
+    void SavePositionAfterIntro()
+    {
+        GameEvents.current.SaveGame();
     }
 
     private void OnDestroy() 

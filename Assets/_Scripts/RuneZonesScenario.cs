@@ -59,7 +59,7 @@ public class RuneZonesScenario : MonoBehaviour
                     if(!_tensionMusic.isPlaying)
                     {
                         _spellCounterHolder = _runeEffect.SpellCounter[1];
-                        Invoke("ShowUITutorial", 6f);
+                        Invoke("ShowUITutorial", 7.5f);
                         _tensionMusic.time = 3.5f;
                         _appearMusic.Play(0);
                         _tensionMusic.Play(0);
@@ -122,6 +122,7 @@ public class RuneZonesScenario : MonoBehaviour
         {
             case 1:
                 //_uiTutorial.text = "R";
+                _firstDecalTutorial.SetActive(true);
                 break;
             case 2:
                 //_uiTutorial.text = "F5";

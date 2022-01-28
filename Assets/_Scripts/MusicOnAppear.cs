@@ -12,7 +12,7 @@ public class MusicOnAppear : MonoBehaviour
         {
             _appearMusic.Play(0);
         }
-        Invoke("DeactivateSecondCharacters", 14.5f);
+        Invoke("DeactivateSecondCharacters", 14f);
     }
 
     void DeactivateSecondCharacters()
