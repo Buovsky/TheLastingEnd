@@ -14,6 +14,7 @@ public class RuneZonesScenario : MonoBehaviour
     [SerializeField] private AudioSource _tensionMusic;
     [SerializeField] private AudioSource _appearMusic;
     [SerializeField] private Text _uiTutorial;
+    [SerializeField] private GameObject _firstDecalTutorial;
 
     [Header("Second Scenario")]
     [SerializeField] private GameObject _wallCharacters;
@@ -22,6 +23,8 @@ public class RuneZonesScenario : MonoBehaviour
     [SerializeField] private Renderer _leftRenderer;
     [SerializeField] private AudioSource _tensionMusicSecond;
     [SerializeField] private AudioSource _appearMusicSecond;
+    [SerializeField] private GameObject _secondDecalTutorial;
+
 
 
 
@@ -118,13 +121,14 @@ public class RuneZonesScenario : MonoBehaviour
        switch(_runeIndexHolder)
         {
             case 1:
-                _uiTutorial.text = "R";
+                //_uiTutorial.text = "R";
                 break;
             case 2:
-                _uiTutorial.text = "F5";
+                //_uiTutorial.text = "F5";
+                _secondDecalTutorial.SetActive(true);
                 break;
         }
-        _uiTutorial.enabled = true;
+        //_uiTutorial.enabled = true;
         Debug.Log("Tutorial showed");
     }
 
