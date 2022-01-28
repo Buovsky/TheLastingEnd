@@ -57,7 +57,7 @@ public class LifeManagment : MonoBehaviour
             if (dist > maxDist)
                 damageMultiplier = 0f;
             else
-                playerHealth -= .5f * damageMultiplier;
+                playerHealth -= .8f * damageMultiplier;
 
             Debug.Log("Player Health: " + playerHealth + "Antagonist damage multiplier: " + damageMultiplier);
 

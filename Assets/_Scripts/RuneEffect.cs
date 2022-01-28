@@ -207,7 +207,7 @@ public class RuneEffect : MonoBehaviour
                     runeAnimator3.SetBool("Gathered", true);
                     _text.SetActive(false);
                     CollectedRune[2] = 1;
-                    saveGameCurrency = 3;
+                    saveGameCurrency = 2;
                     int runeIndex = 2;
                     GameEvents.current.RuneScenarioStart(runeIndex);
                 }

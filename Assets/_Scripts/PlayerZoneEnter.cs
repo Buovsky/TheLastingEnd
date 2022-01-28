@@ -86,6 +86,7 @@ public class PlayerZoneEnter : MonoBehaviour
         }
         else if(other == _wallTrigger)
         {
+            _lifeManagment.playerHealth = 100f;
             // save currency = 0
             _runes.saveGameCurrency = 0;
             //play sound
