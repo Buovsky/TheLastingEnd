@@ -9,6 +9,7 @@ public class PlayerZoneEnter : MonoBehaviour
 {
     [SerializeField] private Collider _caveTrigger; 
     [SerializeField] private Collider _shrineTrigger;
+    [SerializeField] private Collider _hostileTrigger;
 
     [SerializeField] private Collider _wallTrigger;
     [SerializeField] private Collider _audioTrigger;
@@ -25,6 +26,7 @@ public class PlayerZoneEnter : MonoBehaviour
     [SerializeField] private GameObject _runeUIContainer;
     [SerializeField] private GameObject _watchtowerAudioSource;
     [SerializeField] private AudioMixer _masterAudioMixer;
+    [SerializeField] private LifeManagment _lifeManagment;
 
 
     private bool _isPlayerInZone = false;
@@ -94,6 +96,10 @@ public class PlayerZoneEnter : MonoBehaviour
             _masterAudioMixer.FindSnapshot("EndDemoSnapshot").TransitionTo(1f);
             Invoke("LogoAppear", 4f);
             Invoke("LoadMenuScene", 12f);
+        }
+        else if(other == _hostileTrigger)
+        {
+            _lifeManagment.playerHealth = -1f;
         }
     }
 
