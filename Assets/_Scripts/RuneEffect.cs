@@ -63,11 +63,19 @@ public class RuneEffect : MonoBehaviour
     {
         if(CollectedRune[0] == 1)
         {
+            if(_isPlayerinZone)
+            {
+                runeMainUIContainer[0].SetActive(false);
+            }
+            else
+            {
+                runeMainUIContainer[0].SetActive(true);
+            }
             runeUIContainer[0].SetActive(true);
             if(Time.time > nextSphereUseTime)
             {
                 isRuneOneOnCooldown = false;
-                if (Input.GetKeyUp(KeyCode.E))
+                if (Input.GetKeyUp(KeyCode.E) && !_isPlayerinZone)
                 {
                     SpawnSphere();
                     nextSphereUseTime = Time.time + cooldownSphereTime;
