@@ -86,7 +86,7 @@ public class PlayerZoneEnter : MonoBehaviour
         }
         else if(other == _wallTrigger)
         {
-            _lifeManagment.playerHealth = 100f;
+            _lifeManagment.playerHealth = 300f;
             // save currency = 0
             _runes.saveGameCurrency = 0;
             //play sound
@@ -134,6 +134,6 @@ public class PlayerZoneEnter : MonoBehaviour
 
     void LoadMenuScene()
     {
-        SceneManager.LoadScene("MainScene");
+        Application.Quit();
     }
 }

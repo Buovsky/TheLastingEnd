@@ -161,6 +161,8 @@ public class RuneEffect : MonoBehaviour
                     
                     runeAnimator1.SetBool("Gathered", true);
                     CollectedRune[0] = 1;
+                    int runeIndex = 0;
+                    GameEvents.current.RuneScenarioStart(runeIndex);
                 }
 
                 if (currentPickUpRune == "Rune2")

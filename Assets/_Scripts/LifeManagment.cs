@@ -96,12 +96,12 @@ public class LifeManagment : MonoBehaviour
     {
         _charController.enabled = false;
         _rigidbody.isKinematic = false;
-        _rigidbody.AddForce(transform.forward * 200);
-        _rigidbody.AddForce(transform.up * 100);
+        _rigidbody.AddForce(transform.forward * 50);
+        _rigidbody.AddForce(transform.up * 20);
         _capsuleCollider.enabled = true;
 
         GameEvents.current.PlayerDeath();
-        Invoke("RestartScene", 5f);
+        Invoke("RestartScene", 2.5f);
     }
 
     private void RestartScene()
